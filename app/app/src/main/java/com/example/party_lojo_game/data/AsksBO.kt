@@ -8,7 +8,7 @@ data class AsksBO(
     val text: String,
     val type: AskTypeBO
 )
-fun AsksVO.toBo(): AsksVO =
+fun AsksBO.toVo(): AsksVO =
     AsksVO(
         id = this.id,
         text = this.text,
