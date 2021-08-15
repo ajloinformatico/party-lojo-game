@@ -8,5 +8,5 @@ interface RemoteService {
 
     //TODO dont know if this is going to run
     @GET("{url}")
-    suspend fun getResource(@Path("url") url: String): Response<ResourceDTO>
+    suspend fun getResource(@Path("url") url: String): Response<List<ResourceDTO>>
 }
