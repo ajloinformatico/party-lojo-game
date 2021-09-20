@@ -16,12 +16,12 @@ object RemoteModule {
 
     private const val BASE_URL = "https://gist.githubusercontent.com/ajloinformatico/"
 
-    @Singleton
-    @Provides fun provideRemoteData(source: String): RemoteService {
-        val retrofit = Retrofit.Builder().baseUrl("$BASE_URL $source")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        return retrofit.create(RemoteService::class.java)
 
+    @Singleton
+    @Provides fun provideRemoteData(): RemoteService {
+        val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        return retrofit.create(RemoteService::class.java)
     }
 }

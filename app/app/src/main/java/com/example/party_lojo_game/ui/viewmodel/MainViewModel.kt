@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-const val MAINVIEWMODEL_TIMBER = "MainViewModel::: "
+const val MAINVIEWMODEL_TIMBER = "MainViewModel"
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val repository: RemoteRepository): ViewModel() {
@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(private val repository: RemoteRepository
 
     }
 
-    /** Conver listVo to listBo*/
+    /** Conver listBo to listBo*/
     fun List<AsksBO>.toVo(): List<AsksVO> {
         val returnList = mutableListOf<AsksVO>()
         this.forEach {
@@ -49,7 +49,6 @@ class MainViewModel @Inject constructor(private val repository: RemoteRepository
     }
 
     fun List<AsksVO>.saveOnDataBase(): Unit {
-        //TODO CHECK IF THE INFO IS ON THE DATABASE AND THEN SAFE
     }
 
 }

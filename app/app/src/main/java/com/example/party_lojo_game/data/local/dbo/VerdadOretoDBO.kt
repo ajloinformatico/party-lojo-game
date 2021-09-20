@@ -1,12 +1,16 @@
 package com.example.party_lojo_game.data.local.dbo
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 
-@Entity
+@Entity(tableName = "verdadoreto")
 data class VerdadOretoDBO(
+    @PrimaryKey(autoGenerate = true)
     val id: Long,
+    @ColumnInfo(name = "text")
     val text: String
 )
 
