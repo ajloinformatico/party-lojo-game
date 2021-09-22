@@ -13,7 +13,7 @@ interface YoNuncaDAO {
     fun selectAllFromYoNunca(): Flow<List<YoNuncaDBO>>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun insertYoNuncaAsk(yoNuncaDBO: YoNuncaDBO)
+    suspend fun insertYoNuncaAsk(yoNuncaDBO: YoNuncaDBO): Long
 
     @Query("DELETE FROM yonunca WHERE id = :id")
     suspend fun deleteYoNuncaAsk(id: Long)

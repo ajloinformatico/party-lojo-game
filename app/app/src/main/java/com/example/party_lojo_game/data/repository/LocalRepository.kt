@@ -26,4 +26,10 @@ class LocalRepository @Inject constructor(
     suspend fun insertBebeQuienAsk(askBO: AsksBO): Long =
         bebeQuienDAO.insertBebeQuienAsk(BebeQuienDBO(askBO.id, askBO.text))
 
+    suspend fun insertYoNuncaAsk(askBO: AsksBO): Long =
+        yoNuncaDAO.insertYoNuncaAsk(YoNuncaDBO(askBO.id, askBO.text))
+
+    suspend fun insertVerdadOretoAsk(askBO: AsksBO): Long =
+        verdadOretoDAO.insertVerdadOretoAsk(VerdadOretoDBO(askBO.id, askBO.text))
+
 }

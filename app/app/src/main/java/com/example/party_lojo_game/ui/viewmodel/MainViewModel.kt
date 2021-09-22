@@ -49,48 +49,42 @@ class MainViewModel @Inject constructor(
                verdadOretoAsks: List<AsksBO>) {
         Timber.d("make seeder on room database")
 
-        localRepository.selectAllFromYoNunca?.let {
-            checkDataBaseAndAdd(yoNuncaAsks, it, Constants.YO_NUNCA_DTO_TYPE)
+        localRepository.selectAllFromYoNunca?.let { localList ->
+            checkDataBaseAndAdd(yoNuncaAsks, localList)
         }
 
-        localRepository.selectAllFromBebeQuien?.let {
-            checkDataBaseAndAdd(bebeQuienAsks, it, Constants.BEBE_QUIEN_DTO_TYPE)
+        localRepository.selectAllFromBebeQuien?.let { localList ->
+            checkDataBaseAndAdd(bebeQuienAsks, localList)
         }
 
-        localRepository.selectAllFromVerdadOreto?.let {
-            checkDataBaseAndAdd(verdadOretoAsks, it, Constants.VERDAD_O_RETO_TYPE)
+        localRepository.selectAllFromVerdadOreto?.let { localList ->
+            checkDataBaseAndAdd(verdadOretoAsks, localList)
         }
 
-//        localRepository.selectAllFromBebeQuien
-//
-//        allMonumentsFromApi?.monuments?.forEach { it ->
-//            if (!monumentsIdFromDatabase.contains(it.id)) {
-//                repository.insertMonument(it.toBO())
-//                val ownerId = it.id
-//
-//                it.images?.forEach { imageDTO ->
-//                    repository.insertImage(imageDTO.toBO(ownerId?:0L))
-//                }
-//            }
-//        }
 
     }
 
-    fun checkDataBaseAndAdd(remoteList: List<AsksBO>, localList: List<AsksBO>, type: String) {
+    fun checkDataBaseAndAdd(remoteList: List<AsksBO>, localList: List<AsksBO>) {
         viewModelScope.launch {
             remoteList.forEach {
                 if (!localList.contains(it)) {
                     when (it.type) {
                         AskTypeBO.YO_NUNCA -> {
-                            localRepository.insertBebeQuienAsk(it)
+                            localRepository.insertYoNuncaAsk(it)
+                            Timber.d("Added new yoNunca ask to database")
                         }
                         AskTypeBO.VERDAD_O_RETO -> {
-                            //insert into database
+                            localRepository.insertVerdadOretoAsk(it)
+                            Timber.d("Added new verdadOreto ask to database")
+
                         }
                         AskTypeBO.BEBE_QUIEN -> {
-                            //insert into database
+                            localRepository.insertBebeQuienAsk(it)
+                            Timber.d("Added new bebeQuien ask to database")
+
                         }
                         AskTypeBO.UNKNONW -> {
+                            Timber.d("Error: Unknown ask")
                             /*no-loop*/
                         }
                     }

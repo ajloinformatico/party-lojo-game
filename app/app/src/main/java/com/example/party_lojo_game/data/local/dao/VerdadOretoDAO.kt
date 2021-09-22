@@ -13,7 +13,7 @@ interface VerdadOretoDAO {
     fun selectAllFromVerdadOreto(): Flow<List<VerdadOretoDBO>>
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun insertVerdadOretoAsk(verdadOretoDBO: VerdadOretoDBO)
+    suspend fun insertVerdadOretoAsk(verdadOretoDBO: VerdadOretoDBO): Long
 
     @Query("DELETE FROM verdadoreto WHERE id = :id")
     suspend fun deleteVerdadOretoAsk(id: Long)
