@@ -15,7 +15,7 @@ data class ResourceDTO(
 
 fun ResourceDTO.toBO(): AsksBO =
     AsksBO(
-        id = (this.id ?: 0) as Long,
+        id = (this.id ?: "0").toLong(),
         text = this.text ?: "unknown",
         type = when (this.type) {
             Constants.BEBE_QUIEN_DTO_TYPE -> AskTypeBO.BEBE_QUIEN

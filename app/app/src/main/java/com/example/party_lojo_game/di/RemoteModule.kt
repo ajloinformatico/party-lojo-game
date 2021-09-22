@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 object RemoteModule {
 
-    private const val BASE_URL = "https://gist.githubusercontent.com/ajloinformatico/"
+    const val BASE_URL = "https://gist.githubusercontent.com/ajloinformatico/"
 
 
     @Singleton

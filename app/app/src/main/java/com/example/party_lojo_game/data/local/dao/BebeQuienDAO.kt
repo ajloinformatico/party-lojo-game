@@ -7,6 +7,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BebeQuienDAO {
 
+    @Transaction
+    @Query("SELECT * FROM bebequien")
+    fun selectAllFromBebeQuien(): Flow<List<BebeQuienDBO>>
+
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertBebeQuienAsk(bebeQuienDBO: BebeQuienDBO): Long
 

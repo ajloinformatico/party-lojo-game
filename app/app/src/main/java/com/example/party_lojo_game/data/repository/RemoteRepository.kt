@@ -16,13 +16,13 @@ class RemoteRepository @Inject constructor(private val remoteService: RemoteServ
 
         val resourceData: Response<List<ResourceDTO>>? = when (type) {
             Constants.YO_NUNCA_URL -> {
-                remoteService.getResource(Constants.YO_NUNCA_URL)
+                remoteService.getYoNuncaResource()
             }
             Constants.BEBE_QUIEN_URL -> {
-                remoteService.getResource(Constants.BEBE_QUIEN_URL)
+                remoteService.getBebeQuienResource()
             }
             Constants.VERDAD_O_RETO_URL -> {
-                remoteService.getResource(Constants.VERDAD_O_RETO_URL)
+                remoteService.getVerdadOretoResource()
             }
             else -> null
         }

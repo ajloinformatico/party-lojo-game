@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    //HILT
     id 'dagger.hilt.android.plugin'
 }
 
@@ -39,6 +40,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -96,6 +98,9 @@ dependencies {
 
     // Jetpack Compose Integration //Note: Gradle error its the last version
     implementation "androidx.navigation:navigation-compose:$nav_compose"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
     // testing
     testImplementation 'junit:junit:4.13.2'
