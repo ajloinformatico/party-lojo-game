@@ -29,6 +29,7 @@
         <item name="android:layout_height">@dimen/dp130</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginEnd">@dimen/dp10</item>
+        <item name="android:elevation">@dimen/dp10</item>
         <item name="android:backgroundTint">@color/primary_slow_purple</item>
         <item name="android:layout_marginTop">@dimen/dp10</item>
     </style>
