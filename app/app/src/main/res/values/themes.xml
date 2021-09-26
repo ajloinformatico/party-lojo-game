@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Partylojogame" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary_slow_purple</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -15,4 +15,27 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <!--Own styles-->
+    <style name="itemsSelectNumberOfPLayers">
+        <item name="android:textColor">@color/primary_navy</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">80sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CardItemSelectNumberOfPlayers">
+        <item name="android:layout_width">@dimen/dp0</item>
+        <item name="android:layout_height">@dimen/dp130</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginEnd">@dimen/dp10</item>
+        <item name="android:backgroundTint">@color/primary_slow_purple</item>
+        <item name="android:layout_marginTop">@dimen/dp10</item>
+    </style>
+
+    <tyle name="CardItemSelectNumberOfPLayers.end" parent="CardItemSelectNumberOfPlayers">
+        <item name="android:layout_marginEnd">@dimen/dp0</item>
+    </tyle>
+
+
 </resources>

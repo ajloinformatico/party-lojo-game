@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.HowManyPLayersFragment"
+    android:background="@color/black"
+    android:padding="@dimen/dp10">
+
+    <TextView
+        android:id="@+id/fragment_how_many_players__title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="¿Cúantos jugadores sois?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__one"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__two"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__five">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__two"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__three"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__one"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__six">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="2" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__three"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__four"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__two"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__seven">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="3" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__four"
+        style="@style/CardItemSelectNumberOfPlayers"
+        android:layout_marginEnd="@dimen/dp0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__three"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__eight">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="4" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--Second row-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__nine"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__ten"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__five"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="9" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__ten"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__eleven"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__nine"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__five"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="10" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__eleven"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__twelve"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__ten"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__five"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="11" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__twelve"
+        style="@style/CardItemSelectNumberOfPlayers"
+        android:layout_marginEnd="@dimen/dp0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__eleven"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__five"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="12" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!--third row-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__five"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__one"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__nine"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__six">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="5" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__six"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__seven"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__five"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__two"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__ten">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="6" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__seven"
+        style="@style/CardItemSelectNumberOfPlayers"
+        app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__eight"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__six"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__three"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__eleven">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="7" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_how_many_players__eight"
+        style="@style/CardItemSelectNumberOfPlayers"
+        android:layout_marginEnd="@dimen/dp0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__seven"
+        app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__four"
+        app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__twelve">
+
+        <TextView
+            style="@style/itemsSelectNumberOfPLayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="8" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
