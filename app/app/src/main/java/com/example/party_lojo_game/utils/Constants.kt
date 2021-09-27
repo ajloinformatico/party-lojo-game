@@ -10,4 +10,7 @@ object Constants {
     const val VERDAD_O_RETO_TYPE = "Verdad o reto"
 
     const val DATABASE_NAME: String = "PartyLojoGameDataBase"
+
+    const val HOME_PAGE_LOCATION = "HOME_PAGE_LOCATION"
+    const val CONFIG_PLAYERS_LOCATION = "CONFIG_PAGE_LOCATION"
 }

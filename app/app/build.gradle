@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'androidx.navigation.safeargs'
     id 'kotlin-kapt'
     //HILT
     id 'dagger.hilt.android.plugin'
@@ -101,6 +101,9 @@ dependencies {
 
     // Timber
     implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Circle image
+    implementation "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
     // testing
     testImplementation 'junit:junit:4.13.2'

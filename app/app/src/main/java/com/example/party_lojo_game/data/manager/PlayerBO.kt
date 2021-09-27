@@ -4,5 +4,5 @@ import java.io.Serializable
 data class PlayerBO(
     val name: String,
     val resource: String,
-    val isAPhoto: Boolean
+    val position: Int
 ): Serializable

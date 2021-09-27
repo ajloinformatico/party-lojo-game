@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include android:id="@+id/activity_main__custom_toolbar"
-        layout="@layout/custom_toolbar"/>
+<!--    <include android:id="@+id/activity_main__custom_toolbar"-->
+<!--        layout="@layout/custom_toolbar"/>-->
 
     <!--Navigation-->
     <fragment

@@ -47,6 +47,8 @@ buildscript {
         locationVersion = '18.0.0'
         //timber
         timberVersion = '5.0.1'
+        //Circle image
+        circleImageViewVersion = '3.1.0'
 
     }
 }

@@ -8,46 +8,70 @@
     android:background="@color/black"
     android:padding="@dimen/dp10">
 
-    <ImageView
+    <TextView
+        android:id="@+id/fragment_home_page__title"
         android:layout_width="@dimen/dp300"
-        android:layout_height="@dimen/dp200"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/logo_old"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/home_page__options_btn"
+        android:layout_height="@dimen/dp150"
+        android:gravity="center|top"
+        android:text="@string/title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp50"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/home_page__options_btn"
         app:layout_constraintEnd_toEndOf="@id/home_page__start_btn"
-        app:layout_constraintBottom_toTopOf="@id/home_page__options_btn"/>
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@id/home_page__options_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357" />
 
-
-    <Button
-        android:id="@+id/home_page__options_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp100"
-        android:text="@string/options"
-        style="@style/TextAppearance.AppCompat.Button"
-        android:background="@drawable/button_border_rounds"
+    <TextView
+        android:layout_width="@dimen/dp300"
+        android:layout_height="@dimen/dp50"
+        android:textColor="@color/white"
+        android:text="@string/subtitle"
         android:textSize="@dimen/sp20"
-        android:textColor="@color/black"
-        android:layout_marginBottom="@dimen/dp60"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/fragment_home_page__title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <ImageButton
+        android:id="@+id/home_page__options_btn"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:src="@drawable/ic_options_icon"
+        android:layout_marginBottom="@dimen/dp95"
+        android:background="@drawable/button_border_rounds"
+        android:backgroundTint="@color/primary_slow_purple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/home_page__start_btn"
-
         />
 
-    <Button
+
+
+    <ImageButton
         android:id="@+id/home_page__start_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dp100"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:src="@drawable/ic_play_icon"
         android:background="@drawable/button_border_rounds"
         android:backgroundTint="@color/primary_slow_purple"
-        android:text="@string/play"
-        android:textSize="@dimen/sp20"
-        android:textColor="@color/black"
-        android:layout_marginBottom="@dimen/dp60"
+        android:layout_marginBottom="@dimen/dp95"
         app:layout_constraintStart_toEndOf="@id/home_page__options_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/about"
+        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

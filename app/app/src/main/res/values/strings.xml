@@ -2,8 +2,21 @@
     <string name="app_name">party-lojo-game</string>
     <string name="title">Party Lojo Game</string>
     <string name="subtitle">Enjoy Drink Responsibly</string>
+    <string name="about">Un juego de infolojo</string>
+    <string name="exit_app">Estas seguro de que desea dejar la aplicación</string>
+    <string name="exit_app_title">Salir de INFOLOJO PARTY GAME</string>
+    <string name="cancel_config">¿Estas seguro de que deseas volver a atras?\nPerderas todo el progrso</string>
+    <string name="important_config">Ojo !!</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="dialog_no">Mejor que no</string>
+    <string name="dialog_si">Dale</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="play">JUGAR</string>
     <string name="options">Opciones</string>
+    <string name="configure_user">Configura tu personaje</string>
+    <string name="config_player_img_label">Toca para cambiar el personaje</string>
+    <string name="config_player_name_txt">Introduce el nombre de tu jugador</string>
+    <string name="toca_para_seguir">Toca para seguir</string>
 </resources>

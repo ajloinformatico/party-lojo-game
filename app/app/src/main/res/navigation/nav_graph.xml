@@ -9,6 +9,46 @@
     <fragment android:id="@+id/homePageFragment"
         android:name="com.example.party_lojo_game.ui.fragments.HomePageFragment"
         android:label="@string/title"
-        tools:layout="@layout/fragment_home_page"/>
+        tools:layout="@layout/fragment_home_page">
+
+        <action
+            android:id="@+id/action_homePageFragment_to_howManyPlayersFragment"
+            app:destination="@id/howManyPlayersFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+
+    </fragment>
+    <fragment android:id="@+id/howManyPlayersFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.HowManyPLayersFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_how_many_p_layers">
+
+        <action android:id="@+id/action_howManyPlayersFragment_to_configPlayersManager"
+            app:destination="@id/configPlayersManager"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            >
+            <argument
+                android:name="numberOfPlayers"
+                app:argType="integer"
+                />
+        </action>
+
+    </fragment>
+
+    <fragment android:id="@+id/configPlayersManager"
+        android:name="com.example.party_lojo_game.ui.fragments.ConfigPlayerManagerFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_config_player_manager">
+        <argument
+            android:name="numberOfPlayers"
+            app:argType="integer"
+            android:defaultValue="1"
+            />
+    </fragment>
 
 </navigation>

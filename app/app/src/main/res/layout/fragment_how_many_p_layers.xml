@@ -24,7 +24,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__one"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__two"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
@@ -41,7 +41,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__two"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__three"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__one"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
@@ -58,7 +58,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__three"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__four"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__two"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
@@ -76,7 +76,7 @@
         android:id="@+id/fragment_how_many_players__four"
         style="@style/CardItemSelectNumberOfPlayers"
         android:layout_marginEnd="@dimen/dp0"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__three"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__title"
@@ -95,7 +95,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__nine"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__ten"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__five"
@@ -112,7 +112,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__ten"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__eleven"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__nine"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__six"
@@ -130,7 +130,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__eleven"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__twelve"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__ten"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__seven"
@@ -147,7 +147,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__twelve"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         android:layout_marginEnd="@dimen/dp0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__eleven"
@@ -166,7 +166,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__five"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__one"
         app:layout_constraintBottom_toTopOf="@id/fragment_how_many_players__nine"
@@ -183,7 +183,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__six"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__seven"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__five"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__two"
@@ -200,7 +200,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/fragment_how_many_players__seven"
         style="@style/CardItemSelectNumberOfPlayers"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toStartOf="@id/fragment_how_many_players__eight"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__six"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__three"
@@ -218,7 +218,7 @@
         android:id="@+id/fragment_how_many_players__eight"
         style="@style/CardItemSelectNumberOfPlayers"
         android:layout_marginEnd="@dimen/dp0"
-        app:cardCornerRadius="25dp"
+        app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/fragment_how_many_players__seven"
         app:layout_constraintTop_toBottomOf="@id/fragment_how_many_players__four"
