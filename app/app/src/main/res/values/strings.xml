@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">party-lojo-game</string>
     <string name="title">Party Lojo Game</string>
-    <string name="subtitle">Enjoy Drink Responsibly</string>
+    <string name="subtitle">Enjoy Responsibly Drink</string>
     <string name="about">Un juego de infolojo</string>
     <string name="exit_app">Estas seguro de que desea dejar la aplicación</string>
     <string name="exit_app_title">Salir de INFOLOJO PARTY GAME</string>
-    <string name="cancel_config">¿Estas seguro de que deseas volver a atras?\nPerderas todo el progrso</string>
+    <string name="cancel_config">¿Estas seguro de que deseas volver a atras?\nPerderas todo el progreso</string>
     <string name="important_config">Ojo !!</string>
     <string name="si">Si</string>
     <string name="no">No</string>
@@ -16,7 +16,13 @@
     <string name="play">JUGAR</string>
     <string name="options">Opciones</string>
     <string name="configure_user">Configura tu personaje</string>
+    <string name="configure_all_users">Configura los personajes</string>
+    <string name="configure_user__how_to">Para configurar tu personaje desliza hacia la derecha y pulsa el boto "Toca para comenzar el juego"</string>
+    <string name="configure_user__all_users">Para configurar los personajes ve deslizando y pasando el teléfono. Cuando lleges al final el último jugador debe pulsar el botón "Toca para comenzar el juego"</string>
     <string name="config_player_img_label">Toca para cambiar el personaje</string>
     <string name="config_player_name_txt">Introduce el nombre de tu jugador</string>
-    <string name="toca_para_seguir">Toca para seguir</string>
+    <string name="config_player_swipe_to_continue">Desliza para comenzar</string>
+    <string name="toca_para_seguir">Desliza y pasa al siguiente jugador</string>
+    <string name="toca_para_comenzar_el_juego">Toca para comenzar el juego</string>
+    <string name="elige_una_foto">Elige una foto</string>
 </resources>

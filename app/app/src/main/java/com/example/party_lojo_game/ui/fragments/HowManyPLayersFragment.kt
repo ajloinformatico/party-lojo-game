@@ -33,37 +33,37 @@ class HowManyPLayersFragment : Fragment() {
             navigateToConfigPLayerManagerFragment(1)
         }
         binding.fragmentHowManyPlayersTwo.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+            navigateToConfigPLayerManagerFragment(2)
         }
         binding.fragmentHowManyPlayersThree.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+            navigateToConfigPLayerManagerFragment(3)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersFour.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(4)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersFive.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(5)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersSix.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(6)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersSeven.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(7)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersEight.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(8)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersNine.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(9)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersTen.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(10)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersEleven.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(11)
         }
-        binding.fragmentHowManyPlayersOne.setOnClickListener {
-            navigateToConfigPLayerManagerFragment(1)
+        binding.fragmentHowManyPlayersTwelve.setOnClickListener {
+            navigateToConfigPLayerManagerFragment(12)
         }
     }
 

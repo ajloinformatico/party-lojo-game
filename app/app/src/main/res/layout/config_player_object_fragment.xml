@@ -1,94 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:isScrollContainer="false"
     android:background="@color/black"
     android:padding="@dimen/dp10"
 
     tools:context=".ui.fragments.ConfigPlayerObjectFragment">
 
-    <TextView
-        android:id="@+id/config_player_title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/configure_user"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/config_player__img"
+                android:layout_width="@dimen/dp150"
+                android:layout_height="@dimen/dp150"
+                android:layout_marginTop="@dimen/dp50"
+                android:src="@mipmap/user8"
+                app:civ_border_color="@color/primary_slow_purple"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/config_player__imagen_lavel"
+                android:layout_width="@dimen/dp300"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/config_player_img_label"
+                android:textColor="@color/primary_slow_purple"
+                android:textSize="@dimen/sp20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__img" />
 
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/config_player__img"
-        android:layout_width="@dimen/dp150"
-        android:layout_height="@dimen/dp150"
-        android:layout_marginTop="@dimen/dp50"
-        app:layout_constraintTop_toBottomOf="@id/config_player_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/primary_slow_purple"
-        android:src="@mipmap/user8"/>
+            <TextView
+                android:id="@+id/config_player__player_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Introduce el nombre de tu personaje"
+                android:textSize="@dimen/sp20"
+                android:textColor="@color/primary_slow_purple"
+                android:layout_marginTop="@dimen/dp100"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__imagen_lavel"
+                app:layout_constraintBottom_toTopOf="@id/config_player__player_name_txt"/>
 
-    <TextView
-        android:id="@+id/config_player__imagen_lavel"
-        android:layout_width="@dimen/dp300"
-        android:layout_height="wrap_content"
-        android:textColor="@color/primary_slow_purple"
-        android:text="@string/config_player_img_label"
-        android:gravity="center"
-        android:textSize="@dimen/sp20"
-        app:layout_constraintTop_toBottomOf="@id/config_player__img"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <EditText
+                android:id="@+id/config_player__player_name_txt"
+                android:layout_width="@dimen/dp300"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_slow_purple"
+                android:ellipsize="end"
+                android:hint="@string/config_player_name_txt"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:scrollHorizontally="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__player_name_label" />
 
 
-    <EditText
-        android:id="@+id/config_player__player_name_txt"
-        android:layout_width="@dimen/dp300"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp80"
-        android:background="@color/primary_slow_purple"
-        android:hint="@string/config_player_name_txt"
-        android:maxLines="1"
-        android:padding="5dp"
-        android:textColorHint="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/nextButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/config_player__imagen_lavel"
-        app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/config_player__next_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp30"
+                android:layout_marginTop="@dimen/dp100"
+                android:gravity="center"
+                android:text="@string/toca_para_seguir"
+                android:textColor="@color/primary_slow_purple"
+                android:textSize="@dimen/sp20"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__player_name_txt" />
 
-    <ImageButton
-        android:id="@+id/nextButton"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
-        android:background="@drawable/button_border_rounds"
-        android:backgroundTint="@color/primary_slow_purple"
-        android:src="@drawable/ic_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/config_player__next_label" />
+            <ImageButton
+                android:id="@+id/config_player__start_btn"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
+                android:layout_marginBottom="@dimen/dp30"
+                android:background="@drawable/button_border_rounds"
+                android:layout_marginTop="@dimen/dp100"
+                android:backgroundTint="@color/primary_slow_purple"
+                android:src="@drawable/ic_play_icon"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__player_name_txt"
+                app:layout_constraintVertical_bias="0.389"
+                tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/config_player__next_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/toca_para_seguir"
-        android:textColor="@color/primary_slow_purple"
-        android:textStyle="bold"
-        android:textSize="@dimen/sp20"
-        android:layout_marginBottom="@dimen/dp30"
+            <TextView
+                android:id="@+id/config_player__start_btn__label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/toca_para_comenzar_el_juego"
+                android:textColor="@color/primary_slow_purple"
+                android:textSize="@dimen/sp20"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/config_player__start_btn"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/config_player__custom_alert"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black_real_trasparent"
+        android:padding="@dimen/dp10"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
-        android:gravity="center"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/config_player__custom_alert__recycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp220"
+            android:background="@color/black_transparent"
+            android:paddingTop="@dimen/dp20"
+            android:paddingBottom="@dimen/dp20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!--todo:change with linear layout-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp10"
+            android:text="@string/elige_una_foto"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/config_player__custom_alert__recycler" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
