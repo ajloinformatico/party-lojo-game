@@ -10,16 +10,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.databinding.FragmentConfigPlayerManagerBinding
 import com.example.party_lojo_game.ui.adapter.ConfigPlayerAdapter
 import com.example.party_lojo_game.ui.viewmodel.ConfigPlayerViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
-class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleToManagerNextPlayer{
+class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginToPlay{
 
     private lateinit var binding: FragmentConfigPlayerManagerBinding
     private lateinit var navigation: NavController
@@ -45,8 +43,9 @@ class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleToManag
         })
     }
 
-    override fun onAllPlayersSelected(players: PlayersBO, maxOfPlayers: Int) {
-        TODO("Not yet implemented")
-        //TODO CARGA LA PAGINA DE JUEGO
+    /**Begin to player*/
+    override fun onAllPlayersSelected(players: PlayersBO) {
+        Log.d("TAG::","Begin to player with ${players.players}")
+        navigation.navigate(ConfigPlayerManagerFragmentDirections.actionConfigPlayersManagerToOnPlayerHomeFragment(players))
     }
 }

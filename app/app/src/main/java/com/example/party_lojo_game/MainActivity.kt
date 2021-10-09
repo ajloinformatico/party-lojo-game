@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.configPlayersManager -> {
                     location = Constants.CONFIG_PLAYERS_LOCATION
                 }
+
+                R.id.configPlayersManager -> {
+                    location = Constants.ON_GAME_PLAY
+                }
             }
         }
     }
@@ -87,6 +91,16 @@ class MainActivity : AppCompatActivity() {
             Constants.CONFIG_PLAYERS_LOCATION -> {
                 val dialog = AlertDialog.Builder(this)
                 dialog.setMessage(this.resources.getString(R.string.cancel_config))
+                    .setTitle(this.resources.getString(R.string.important_config))
+                    .setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_warning))
+                    .setPositiveButton(R.string.dialog_si) {_, _ -> super.onBackPressed()}
+                    .setNegativeButton(R.string.dialog_no) {_, _ -> /*no-loop*/}
+                dialog.create()
+                dialog.show()
+            }
+            Constants.ON_GAME_PLAY -> {
+                val dialog = AlertDialog.Builder(this)
+                dialog.setMessage(this.resources.getString(R.string.on_play_back))
                     .setTitle(this.resources.getString(R.string.important_config))
                     .setIcon(AppCompatResources.getDrawable(this, R.drawable.ic_warning))
                     .setPositiveButton(R.string.dialog_si) {_, _ -> super.onBackPressed()}

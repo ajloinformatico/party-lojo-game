@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_slow_purple"
+    android:padding="@dimen/dp10"
+    tools:context=".ui.fragments.OnPlayeHomeFragment">
+
+    <TextView
+        android:id="@+id/fragment_on_play_home__title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/que_empieze_la_fiesta"
+        android:textColor="@color/primary_hard_purple"
+        android:textSize="@dimen/sp50"
+        android:paddingBottom="@dimen/dp20"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_1"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user12"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_2"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_2"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user11"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_3"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_3"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user10"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_4"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_4"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user9"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_5"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_5"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user8"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_6"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user7"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_7"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user6"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_8"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_8"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user34"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_9"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_9"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user36"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_10"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_10"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user16"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_11"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_11"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user19"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_12"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fragment_on_play_home__player_12"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
+        android:layout_margin="@dimen/dp5"
+        android:src="@mipmap/user25"
+        android:visibility="gone"
+        app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/fragment_on_play_home__verdad_o_reto"
+        style="@style/onPlayButtons"
+        app:layout_constraintTop_toBottomOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_on_play_home__yo_nunca"/>
+
+    <Button
+        android:id="@+id/fragment_on_play_home__yo_nunca"
+        style="@style/onPlayButtons"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__verdad_o_reto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_on_playe_home__bebe_quien"/>
+
+    <Button
+        android:id="@+id/fragment_on_playe_home__bebe_quien"
+        style="@style/onPlayButtons"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__yo_nunca"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="282dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

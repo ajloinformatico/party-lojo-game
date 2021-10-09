@@ -13,4 +13,5 @@ object Constants {
 
     const val HOME_PAGE_LOCATION = "HOME_PAGE_LOCATION"
     const val CONFIG_PLAYERS_LOCATION = "CONFIG_PAGE_LOCATION"
+    const val ON_GAME_PLAY = "ON_PLAY_HOME"
 }

@@ -6,39 +6,58 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
+import com.example.party_lojo_game.ui.fragments.ConfigPlayerInfoFragment
 import com.example.party_lojo_game.ui.fragments.ConfigPlayerObjectFragment
 
 const val NEXT_PLAYER: String = "N_PLAYER"
 const val MAX_PLAYERS: String = "MAX_PLAYERS"
+const val ONE_PLAYER: String = "ONE_PLAYER"
 
 class ConfigPlayerAdapter(
     fragment: Fragment,
     private val players: PlayersBO,
-    handleNextPlayer: HandleToManagerNextPlayer,
+    handleBeginBeginToPlayer: HandleBeginToPlay,
 ) : FragmentStateAdapter(fragment), ConfigPlayerObjectFragment.HandleNextPlayer {
 
-    private val listener = handleNextPlayer
+    private val listener = handleBeginBeginToPlayer
     private var playersChanged: MutableList<PlayerBO> = mutableListOf()
     private var isGalleryOpen: Boolean = false
+    //Note: Boolean value to load first screen
+    private var firstElement: Boolean = true
 
-    interface HandleToManagerNextPlayer {
-        fun onAllPlayersSelected(players: PlayersBO, maxOfPlayers: Int)
+    interface HandleBeginToPlay {
+        fun onAllPlayersSelected(players: PlayersBO)
     }
 
-    override fun getItemCount(): Int = players.players.size
+    override fun getItemCount(): Int = players.players.size + 1
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = ConfigPlayerObjectFragment(this)
-        fragment.arguments = Bundle().apply {
-            putSerializable(NEXT_PLAYER, players.players[position])
-            putInt(MAX_PLAYERS, itemCount)
+
+        if (position == 0) {
+            val fragment = ConfigPlayerInfoFragment()
+            fragment.arguments = Bundle().apply {
+                if (itemCount > 2) {
+                    putBoolean(ONE_PLAYER, false)
+                } else {
+                    putBoolean(ONE_PLAYER, true)
+                }
+            }
+            firstElement = false
+            return fragment
+
+        } else {
+            val fragment = ConfigPlayerObjectFragment(this)
+            fragment.arguments = Bundle().apply {
+                putSerializable(NEXT_PLAYER, players.players[position-1])
+                putInt(MAX_PLAYERS, itemCount - 1)
+            }
+            return fragment
         }
-        return fragment
     }
 
     /**Notify to manager to change page*/
     override fun nextPlayer(playerBO: PlayerBO) {
-        val newList = playersChanged
+        val newList = mutableListOf<PlayerBO>()
         players.players.forEach {
             if (it.position != playerBO.position) {
                 newList.add(it)
@@ -48,5 +67,10 @@ class ConfigPlayerAdapter(
         }
         playersChanged = newList
         Log.d("TAG::UPDATING LIST", playersChanged.toString())
+    }
+
+    /**Begin to play*/
+    override fun beginToPlay() {
+        listener.onAllPlayersSelected(PlayersBO(playersChanged))
     }
 }

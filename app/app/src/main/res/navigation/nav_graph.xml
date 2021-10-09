@@ -43,12 +43,36 @@
     <fragment android:id="@+id/configPlayersManager"
         android:name="com.example.party_lojo_game.ui.fragments.ConfigPlayerManagerFragment"
         android:label="@string/title"
-        tools:layout="@layout/fragment_config_player_manager">
+        tools:layout="@layout/config_player_object_fragment">
+
         <argument
             android:name="numberOfPlayers"
             app:argType="integer"
             android:defaultValue="1"
             />
+
+        <action
+            android:id="@+id/action_configPlayersManager_to_onPlayerHomeFragment"
+            app:destination="@id/onPlayerHomeFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+
+            <argument
+                android:name="players"
+                app:argType="com.example.party_lojo_game.data.manager.PlayersBO" />
+
+        </action>
+    </fragment>
+
+    <fragment android:id="@+id/onPlayerHomeFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.OnPlayeHomeFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_on_playe_home">
+        <argument
+            android:name="players"
+            app:argType="com.example.party_lojo_game.data.manager.PlayersBO" />
     </fragment>
 
 </navigation>

@@ -22,6 +22,7 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
 
     interface HandleNextPlayer {
         fun nextPlayer(playerBO: PlayerBO)
+        fun beginToPlay()
     }
 
     private lateinit var binding: ConfigPlayerObjectFragmentBinding
@@ -99,6 +100,10 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
                 binding.configPlayerCustomAlertRecycler.adapter = adapter
                 binding.configPlayerCustomAlertRecycler.addOnItemTouchListener(scrollListener)
                 adapter.submitList(createImageList())
+            }
+
+            binding.configPlayerStartBtn.setOnClickListener {
+                handleNextPlayer.beginToPlay()
             }
 
         }
