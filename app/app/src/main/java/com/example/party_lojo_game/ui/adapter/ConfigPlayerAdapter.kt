@@ -20,7 +20,7 @@ class ConfigPlayerAdapter(
 ) : FragmentStateAdapter(fragment), ConfigPlayerObjectFragment.HandleNextPlayer {
 
     private val listener = handleBeginBeginToPlayer
-    private var playersChanged: MutableList<PlayerBO> = mutableListOf()
+    private var playersChanged: MutableList<PlayerBO> = players.players as MutableList
     private var isGalleryOpen: Boolean = false
     //Note: Boolean value to load first screen
     private var firstElement: Boolean = true
