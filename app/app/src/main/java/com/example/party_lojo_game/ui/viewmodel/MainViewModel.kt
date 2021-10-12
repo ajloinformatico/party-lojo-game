@@ -1,3 +1,4 @@
+
 package com.example.party_lojo_game.ui.viewmodel
 
 import android.util.Log
@@ -47,17 +48,20 @@ class MainViewModel @Inject constructor(
     fun seeder(yoNuncaAsks: List<AsksBO>,
                bebeQuienAsks: List<AsksBO>,
                verdadOretoAsks: List<AsksBO>) {
-        Timber.d("make seeder on room database")
+        Log.d("MainViewModel","make seeders")
 
-        localRepository.selectAllFromYoNunca?.let { localList ->
+        localRepository.selectAllFromYoNunca.let { localList ->
+            Log.d("MainViewModel", "make seeder YO NUNCA")
             checkDataBaseAndAdd(yoNuncaAsks, localList)
         }
 
-        localRepository.selectAllFromBebeQuien?.let { localList ->
+        localRepository.selectAllFromBebeQuien.let { localList ->
+            Log.d("MainViewModel", "make seeder BEBE QUIEN")
             checkDataBaseAndAdd(bebeQuienAsks, localList)
         }
 
-        localRepository.selectAllFromVerdadOreto?.let { localList ->
+        localRepository.selectAllFromVerdadOreto.let { localList ->
+            Log.d("MainViewModel" ,"make seeder VERDAD O RETO")
             checkDataBaseAndAdd(verdadOretoAsks, localList)
         }
 
@@ -65,21 +69,23 @@ class MainViewModel @Inject constructor(
     }
 
     fun checkDataBaseAndAdd(remoteList: List<AsksBO>, localList: List<AsksBO>) {
+
+
         viewModelScope.launch {
-            remoteList.forEach {
-                if (!localList.contains(it)) {
-                    when (it.type) {
+            remoteList.forEach { asksBOremote ->
+                if (localList.map { it.text }.contains(asksBOremote.text).not()) {
+                    when (asksBOremote.type) {
                         AskTypeBO.YO_NUNCA -> {
-                            localRepository.insertYoNuncaAsk(it)
+                            localRepository.insertYoNuncaAsk(asksBOremote)
                             Timber.d("Added new yoNunca ask to database")
                         }
                         AskTypeBO.VERDAD_O_RETO -> {
-                            localRepository.insertVerdadOretoAsk(it)
+                            localRepository.insertVerdadOretoAsk(asksBOremote)
                             Timber.d("Added new verdadOreto ask to database")
 
                         }
                         AskTypeBO.BEBE_QUIEN -> {
-                            localRepository.insertBebeQuienAsk(it)
+                            localRepository.insertBebeQuienAsk(asksBOremote)
                             Timber.d("Added new bebeQuien ask to database")
 
                         }
