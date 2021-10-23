@@ -38,7 +38,7 @@ class ConfigPlayerViewModel @Inject constructor() : ViewModel() {
 
 
 
-    fun haveNext(actualPosition: Int): Boolean = _numberOfPlayers != 0 && actualPosition < _numberOfPlayers
 
+    fun haveNext(actualPosition: Int): Boolean = _numberOfPlayers != 0 && actualPosition < _numberOfPlayers
 
 }

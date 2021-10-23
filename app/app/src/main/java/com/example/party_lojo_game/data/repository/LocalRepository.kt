@@ -19,17 +19,17 @@ class LocalRepository @Inject constructor(
     private val verdadOretoDAO: VerdadOretoDAO,
     private  val yoNuncaDAO: YoNuncaDAO
     ){
-    val selectAllFromBebeQuien: List<AsksBO>? = bebeQuienDAO.selectAllFromBebeQuien().asLiveData().value?.map { it.toBO() }
-    val selectAllFromVerdadOreto: List<AsksBO>? = verdadOretoDAO.selectAllFromVerdadOreto().asLiveData().value?.map { it.toBO() }
-    val selectAllFromYoNunca: List<AsksBO>? = yoNuncaDAO.selectAllFromYoNunca().asLiveData().value?.map { it.toBO() }
+    val selectAllFromBebeQuien: List<AsksBO> = bebeQuienDAO.selectAllFromBebeQuien().asLiveData().value?.map { it.toBO() } ?: emptyList()
+    val selectAllFromVerdadOreto: List<AsksBO> = verdadOretoDAO.selectAllFromVerdadOreto().asLiveData().value?.map { it.toBO() } ?: emptyList()
+    val selectAllFromYoNunca: List<AsksBO> = yoNuncaDAO.selectAllFromYoNunca().asLiveData().value?.map { it.toBO() } ?: emptyList()
 
     suspend fun insertBebeQuienAsk(askBO: AsksBO): Long =
-        bebeQuienDAO.insertBebeQuienAsk(BebeQuienDBO(askBO.id, askBO.text))
+        bebeQuienDAO.insertBebeQuienAsk(BebeQuienDBO(0,askBO.text))
 
     suspend fun insertYoNuncaAsk(askBO: AsksBO): Long =
-        yoNuncaDAO.insertYoNuncaAsk(YoNuncaDBO(askBO.id, askBO.text))
+        yoNuncaDAO.insertYoNuncaAsk(YoNuncaDBO(0, askBO.text))
 
     suspend fun insertVerdadOretoAsk(askBO: AsksBO): Long =
-        verdadOretoDAO.insertVerdadOretoAsk(VerdadOretoDBO(askBO.id, askBO.text))
+        verdadOretoDAO.insertVerdadOretoAsk(VerdadOretoDBO(0, askBO.text))
 
 }

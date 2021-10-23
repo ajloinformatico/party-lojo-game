@@ -27,9 +27,11 @@
         android:src="@mipmap/user12"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_2"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
         tools:visibility="visible" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_2"
@@ -39,9 +41,10 @@
         android:src="@mipmap/user11"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_3"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
-        tools:visibility="visible" />
+        tools:visibility="visible"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_3"
@@ -51,8 +54,9 @@
         android:src="@mipmap/user10"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_4"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_2"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_4"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -63,9 +67,11 @@
         android:src="@mipmap/user9"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_3"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_5"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
         tools:visibility="visible" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_5"
@@ -75,7 +81,8 @@
         android:src="@mipmap/user8"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_4"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
         tools:visibility="visible" />
 
@@ -87,8 +94,9 @@
         android:src="@mipmap/user7"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_7"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -100,7 +108,8 @@
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_8"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -112,7 +121,8 @@
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_9"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_7"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -124,7 +134,8 @@
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_10"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_8"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -135,9 +146,11 @@
         android:src="@mipmap/user16"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_11"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_9"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_11"
@@ -147,8 +160,9 @@
         android:src="@mipmap/user19"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
+        app:layout_constraintStart_toStartOf="@id/fragment_on_play_home__player_7"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_12"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_10"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -159,13 +173,15 @@
         android:src="@mipmap/user25"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_6"
+        app:layout_constraintEnd_toEndOf="@id/fragment_on_play_home__player_9"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_11"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_10"
         tools:visibility="visible" />
 
     <Button
         android:id="@+id/fragment_on_play_home__verdad_o_reto"
         style="@style/onPlayButtons"
+        android:text="@string/verdad_o_reto"
         app:layout_constraintTop_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +190,7 @@
     <Button
         android:id="@+id/fragment_on_play_home__yo_nunca"
         style="@style/onPlayButtons"
+        android:text="@string/yo_nunca"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__verdad_o_reto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,6 +199,7 @@
     <Button
         android:id="@+id/fragment_on_playe_home__bebe_quien"
         style="@style/onPlayButtons"
+        android:text="@string/bebe_quien"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__yo_nunca"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +211,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="282dp" />
+        app:layout_constraintGuide_begin="329dp" />
 
 
 

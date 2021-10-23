@@ -5,12 +5,13 @@ import com.example.party_lojo_game.data.local.dbo.VerdadOretoDBO
 import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 import com.example.party_lojo_game.ui.vo.AskTypeVO
 import com.example.party_lojo_game.ui.vo.AsksVO
+import java.io.Serializable
 
 data class AsksBO(
     val id: Long,
     val text: String,
     val type: AskTypeBO
-)
+): Serializable
 
 fun AsksBO.toVo(): AsksVO =
     AsksVO(
