@@ -7,11 +7,14 @@
     <dimen name="dp1">1dp</dimen>
     <dimen name="dp30">30dp</dimen>
     <dimen name="sp30">30sp</dimen>
+    <diemn name="sp25">25sp</diemn>
+    <dimen name="dp56">56dp</dimen>
     <dimen name="dp200">200dp</dimen>
     <dimen name="dp220">220dp</dimen>
     <dimen name="dp250">250dp</dimen>
     <dimen name="dp20">20dp</dimen>
     <dimen name="sp20">20sp</dimen>
+    <dimen name="sp56">56sp</dimen>
     <dimen name="sp80">80sp</dimen>
     <dimen name="dp95">95dp</dimen>
     <dimen name="dp100">100dp</dimen>
