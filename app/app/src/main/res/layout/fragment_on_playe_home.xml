@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_slow_purple"
     android:padding="@dimen/dp10"
-    tools:context=".ui.fragments.OnPlayeHomeFragment">
+    tools:context=".ui.fragments.OnPlayHomeFragment">
 
     <TextView
         android:id="@+id/fragment_on_play_home__title"

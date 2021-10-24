@@ -67,12 +67,35 @@
     </fragment>
 
     <fragment android:id="@+id/onPlayerHomeFragment"
-        android:name="com.example.party_lojo_game.ui.fragments.OnPlayeHomeFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.OnPlayHomeFragment"
         android:label="@string/title"
         tools:layout="@layout/fragment_on_playe_home">
         <argument
             android:name="players"
             app:argType="com.example.party_lojo_game.data.manager.PlayersBO" />
+
+        <action
+            android:id="@+id/action_onPLayHomeMannager_to_onPlayAskMannager"
+            app:destination="@id/onPlayAskMannager"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
     </fragment>
 
+
+    <fragment android:id="@+id/onPlayAskMannager"
+        android:name="com.example.party_lojo_game.ui.fragments.OnPlayAskMannagerFragment"
+        tools:layout="@layout/fragment_on_play_ask_mannager">
+        <argument
+            android:name="GAME"
+            app:argType="string"
+            app:nullable="false"
+            />
+        <argument
+            android:name="PLAYERS"
+            app:argType="com.example.party_lojo_game.data.manager.PlayersBO"
+            app:nullable="false"/>
+    </fragment>
 </navigation>

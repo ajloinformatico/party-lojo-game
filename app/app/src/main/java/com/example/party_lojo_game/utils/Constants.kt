@@ -9,6 +9,10 @@ object Constants {
     const val YO_NUNCA_DTO_TYPE = "yo nunca"
     const val VERDAD_O_RETO_TYPE = "verdad o reto"
 
+    const val BEBE_QUIEN_TITLE = "Bebe Quien"
+    const val YO_NUNCA_TITLE = "Yo Nunca"
+    const val VERAD_O_RETO_TITLE = "Verdad o reto"
+
     const val DATABASE_NAME: String = "PartyLojoGameDataBase"
 
     const val HOME_PAGE_LOCATION = "HOME_PAGE_LOCATION"
