@@ -15,12 +15,12 @@ import com.example.party_lojo_game.databinding.FragmentConfigPlayerManagerBindin
 import com.example.party_lojo_game.ui.adapter.ConfigPlayerAdapter
 import com.example.party_lojo_game.ui.viewmodel.ConfigPlayerViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginToPlay{
 
     private lateinit var binding: FragmentConfigPlayerManagerBinding
-    private lateinit var navigation: NavController
     private val viewModel: ConfigPlayerViewModel by viewModels()
     private val args: ConfigPlayerManagerFragmentArgs by navArgs()
 
@@ -31,7 +31,6 @@ class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginTo
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentConfigPlayerManagerBinding.inflate(inflater, container, false)
-        navigation = findNavController()
         return binding.root
     }
 
@@ -45,7 +44,11 @@ class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginTo
 
     /**Begin to player*/
     override fun onAllPlayersSelected(players: PlayersBO) {
-        Log.d("TAG::","Begin to player with ${players.players}")
-        navigation.navigate(ConfigPlayerManagerFragmentDirections.actionConfigPlayersManagerToOnPlayerHomeFragment(players))
+        Timber.d("Begin to player with " + players.players)
+        findNavController().navigate(
+            ConfigPlayerManagerFragmentDirections.actionConfigPlayersManagerToOnPlayerHomeFragment(
+                players
+            )
+        )
     }
 }

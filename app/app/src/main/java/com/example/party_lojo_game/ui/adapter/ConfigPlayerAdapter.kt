@@ -46,12 +46,12 @@ class ConfigPlayerAdapter(
             return fragment
 
         } else {
-            val fragment = ConfigPlayerObjectFragment(this)
-            fragment.arguments = Bundle().apply {
-                putSerializable(NEXT_PLAYER, players.players[position-1])
-                putInt(MAX_PLAYERS, itemCount - 1)
-            }
-            return fragment
+
+            return ConfigPlayerObjectFragment.newInstance(
+                players.players[position-1],
+                itemCount - 1,
+                this
+            )
         }
     }
 

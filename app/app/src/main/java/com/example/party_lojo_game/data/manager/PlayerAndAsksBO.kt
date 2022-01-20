@@ -1,9 +1,11 @@
 package com.example.party_lojo_game.data.manager
 
+import android.os.Parcelable
 import com.example.party_lojo_game.data.AsksBO
-import java.io.Serializable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class PlayerAndAsksBO(
     val playerBO: PlayerBO,
     val ask: AsksBO
-): Serializable
+): Parcelable

@@ -6,9 +6,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.compose.navArgument
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.party_lojo_game.R
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.databinding.ConfigPlayerObjectFragmentBinding
 import com.example.party_lojo_game.ui.adapter.ConfigImageAddImageAdapter
@@ -18,15 +18,38 @@ import com.example.party_lojo_game.utils.createImageList
 import com.example.party_lojo_game.utils.getImage
 
 
-class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), ConfigImageAddImageAdapter.ConfigImageSelectedImage {
+class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
+    ConfigImageAddImageAdapter.ConfigImageSelectedImage {
 
     interface HandleNextPlayer {
         fun nextPlayer(playerBO: PlayerBO)
         fun beginToPlay()
     }
 
+    companion object {
+        fun newInstance(
+            nextPlayer: PlayerBO,
+            maxPlayer: Int,
+            listener: HandleNextPlayer
+        ) = ConfigPlayerObjectFragment(listener).apply {
+            arguments = Bundle().apply {
+                putParcelable(NEXT_PLAYER, nextPlayer)
+                putInt(MAX_PLAYERS, maxPlayer)
+            }
+        }
+    }
+
+
     private lateinit var binding: ConfigPlayerObjectFragmentBinding
-    private lateinit var player: PlayerBO
+
+    private val nextPlayer: PlayerBO? by lazy {
+        arguments?.getParcelable(NEXT_PLAYER)
+    }
+
+    private val maxPlayers: Int by lazy {
+        arguments?.getInt(MAX_PLAYERS) ?: 0
+    }
+
     private val handleNextPlayer: HandleNextPlayer = listener
 
     override fun onCreateView(
@@ -44,20 +67,26 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
         /**Control for scrollview
          * https://medium.com/@goforbg/horizontal-recyclerview-inside-viewpager2-handling-scrolls-982da4aa454b
          * */
-        val scrollListener = object: RecyclerView.OnItemTouchListener {
+        val scrollListener = object : RecyclerView.OnItemTouchListener {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 val action = e.action
-                return if (binding.configPlayerCustomAlertRecycler.canScrollHorizontally(RecyclerView.FOCUS_FORWARD)) {
+
+                return if (binding.configPlayerCustomAlertRecycler.canScrollHorizontally(
+                        RecyclerView.FOCUS_FORWARD
+                    )
+                ) {
                     when (action) {
                         MotionEvent.ACTION_MOVE -> rv.parent
                             .requestDisallowInterceptTouchEvent(true)
                     }
                     false
+
                 } else {
                     when (action) {
                         MotionEvent.ACTION_MOVE -> rv.parent
                             .requestDisallowInterceptTouchEvent(false)
                     }
+
                     binding.configPlayerCustomAlertRecycler.removeOnItemTouchListener(this)
                     true
                 }
@@ -67,15 +96,14 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         }
 
-        arguments?.takeIf { it.containsKey(NEXT_PLAYER) && it.containsKey(MAX_PLAYERS) }?.apply {
-            player = getSerializable(NEXT_PLAYER) as PlayerBO
-            val max: Int = getInt(MAX_PLAYERS)
-            checkAndShowOrHideDragAndButtonInfo(player, max)
+        nextPlayer?.let { player ->
+            checkAndShowOrHideDragAndButtonInfo(player, maxPlayers)
 
             //Gallery
             val adapter = ConfigImageAddImageAdapter(listener, player.resource)
             //LinearLayoutManager for mini gallery
-            val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            val linearLayoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
             binding.configPlayerPlayerNameTxt.setText(player.name)
             binding.configPlayerImg.setImageDrawable(getImage(player.resource, requireContext()))
@@ -110,11 +138,12 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
     }
 
 
-    private fun checkAndShowOrHideDragAndButtonInfo(player: PlayerBO, maxPlayers:Int) {
+    private fun checkAndShowOrHideDragAndButtonInfo(player: PlayerBO, maxPlayers: Int) {
         if (player.position >= maxPlayers) {
             binding.configPlayerNextLabel.visibility = View.GONE
             binding.configPlayerStartBtn.visibility = View.VISIBLE
             binding.configPlayerStartBtnLabel.visibility = View.VISIBLE
+
         } else {
             binding.configPlayerNextLabel.visibility = View.VISIBLE
             binding.configPlayerStartBtn.visibility = View.GONE
@@ -127,7 +156,7 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(), Confi
             PlayerBO(
                 binding.configPlayerPlayerNameTxt.text.toString(),
                 image,
-                player.position
+                nextPlayer?.position?:0
             )
         )
         binding.configPlayerImg.setImageDrawable(getImage(image, requireContext()))

@@ -19,7 +19,7 @@ class OnPlayHomeFragment : Fragment() {
     private lateinit var binding: FragmentOnPlayeHomeBinding
     private lateinit var players: PlayersBO
     private val args: OnPlayHomeFragmentArgs by navArgs()
-    private val navController: NavController = findNavController()
+    private val navController: NavController by lazy { findNavController() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

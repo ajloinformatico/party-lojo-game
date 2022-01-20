@@ -27,8 +27,8 @@ class OnPlayAskPagerAdapter(
     override fun createFragment(position: Int): Fragment {
         val fragment = OnPlayAskFragment()
         fragment.arguments = Bundle().apply {
-            putSerializable(ARG_PLAYER, list[0].playerBO)
-            putSerializable(ARG_ASK, list[0].ask)
+            putParcelable(ARG_PLAYER, list[0].playerBO)
+            putParcelable(ARG_ASK, list[0].ask)
         }
         return fragment
     }

@@ -70,6 +70,7 @@
         android:name="com.example.party_lojo_game.ui.fragments.OnPlayHomeFragment"
         android:label="@string/title"
         tools:layout="@layout/fragment_on_playe_home">
+
         <argument
             android:name="players"
             app:argType="com.example.party_lojo_game.data.manager.PlayersBO" />

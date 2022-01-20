@@ -1,17 +1,19 @@
 package com.example.party_lojo_game.data
 
+import android.os.Parcelable
 import com.example.party_lojo_game.data.local.dbo.BebeQuienDBO
 import com.example.party_lojo_game.data.local.dbo.VerdadOretoDBO
 import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 import com.example.party_lojo_game.ui.vo.AskTypeVO
 import com.example.party_lojo_game.ui.vo.AsksVO
-import java.io.Serializable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class AsksBO(
     val id: Long,
     val text: String,
     val type: AskTypeBO
-): Serializable
+) : Parcelable
 
 fun AsksBO.toVo(): AsksVO =
     AsksVO(
