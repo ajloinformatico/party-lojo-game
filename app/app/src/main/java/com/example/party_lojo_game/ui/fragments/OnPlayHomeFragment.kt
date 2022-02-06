@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.databinding.FragmentOnPlayeHomeBinding
-import com.example.party_lojo_game.utils.Constants
 import com.example.party_lojo_game.utils.getImage
 
 class OnPlayHomeFragment : Fragment() {
@@ -45,21 +45,21 @@ class OnPlayHomeFragment : Fragment() {
 
     private fun renderButtonsActions() {
         binding.fragmentOnPlayeHomeBebeQuien.setOnClickListener {
-            navigateToOnPLay(Constants.BEBE_QUIEN_TITLE)
+            navigateToOnPLay(AskTypeBO.BEBE_QUIEN)
         }
         binding.fragmentOnPlayHomeYoNunca.setOnClickListener {
-            navigateToOnPLay(Constants.YO_NUNCA_TITLE)
+            navigateToOnPLay(AskTypeBO.YO_NUNCA)
         }
         binding.fragmentOnPlayHomeVerdadOReto.setOnClickListener {
-            navigateToOnPLay(Constants.VERAD_O_RETO_TITLE)
+            navigateToOnPLay(AskTypeBO.VERDAD_O_RETO)
         }
     }
 
-    private fun navigateToOnPLay(title: String) {
+    private fun navigateToOnPLay(type: AskTypeBO) {
         navController.navigate(
             OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayAskMannager(
-                title,
-                players
+                players,
+                type
             )
         )
     }

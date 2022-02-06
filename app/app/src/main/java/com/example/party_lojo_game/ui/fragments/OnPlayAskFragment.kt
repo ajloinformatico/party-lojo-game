@@ -36,7 +36,7 @@ class OnPlayAskFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         players = args.players
-        type = args.game
+        type = args.type
     }
 
     override fun onCreateView(
@@ -60,6 +60,6 @@ class OnPlayAskFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        onPlayViewModel.init(navArgs<>())
+        onPlayViewModel.init(type, players)
     }
 }

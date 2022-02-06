@@ -89,14 +89,15 @@
     <fragment android:id="@+id/onPlayAskFragment"
         android:name="com.example.party_lojo_game.ui.fragments.OnPlayAskFragment"
         tools:layout="@layout/fragment_on_play_ask">
-        <argument
-            android:name="GAME"
-            app:argType="string"
-            app:nullable="false"
-            />
+
         <argument
             android:name="PLAYERS"
             app:argType="com.example.party_lojo_game.data.manager.PlayersBO"
+            app:nullable="false"/>
+
+        <argument
+            android:name="type"
+            app:argType="com.example.party_lojo_game.data.AskTypeBO"
             app:nullable="false"/>
     </fragment>
 </navigation>
