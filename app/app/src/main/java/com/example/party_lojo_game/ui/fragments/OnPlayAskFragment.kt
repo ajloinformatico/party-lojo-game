@@ -1,14 +1,18 @@
 package com.example.party_lojo_game.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.party_lojo_game.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.manager.PlayerBO
+import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.databinding.FragmentOnPlayAskBinding
+import com.example.party_lojo_game.ui.viewmodel.OnPlayViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,16 +26,17 @@ const val ARG_ASK = "ARG_ASK"
  */
 class OnPlayAskFragment : Fragment() {
 
-    private lateinit var player: PlayerBO
-    private lateinit var askBO: AsksBO
+    private lateinit var players: PlayersBO
+    private lateinit var type: AskTypeBO
+    private val args: OnPlayAskFragmentArgs by navArgs()
+    private val onPlayViewModel: OnPlayViewModel by viewModels()
     private lateinit var binding: FragmentOnPlayAskBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            player = it.getSerializable(ARG_PLAYER) as PlayerBO
-            askBO = it.getSerializable(ARG_ASK) as AsksBO
-        }
+        players = args.players
+        type = args.game
     }
 
     override fun onCreateView(
@@ -46,5 +51,15 @@ class OnPlayAskFragment : Fragment() {
     //TODO: SET VIEW
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
+        initViewModel()
+    }
+
+    private fun initViews() {
+        //Todo set ToolbarTitle
+    }
+
+    private fun initViewModel() {
+        onPlayViewModel.init(navArgs<>())
     }
 }
