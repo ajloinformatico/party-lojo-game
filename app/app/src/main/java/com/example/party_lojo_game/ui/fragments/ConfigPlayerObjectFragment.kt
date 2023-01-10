@@ -6,7 +6,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.compose.navArgument
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.party_lojo_game.data.manager.PlayerBO
@@ -15,7 +14,9 @@ import com.example.party_lojo_game.ui.adapter.ConfigImageAddImageAdapter
 import com.example.party_lojo_game.ui.adapter.MAX_PLAYERS
 import com.example.party_lojo_game.ui.adapter.NEXT_PLAYER
 import com.example.party_lojo_game.utils.createImageList
-import com.example.party_lojo_game.utils.getImage
+import com.example.party_lojo_game.utils.findUserResource
+import com.example.party_lojo_game.utils.gone
+import com.example.party_lojo_game.utils.show
 
 
 class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
@@ -40,7 +41,7 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
     }
 
 
-    private lateinit var binding: ConfigPlayerObjectFragmentBinding
+    private var binding: ConfigPlayerObjectFragmentBinding? = null
 
     private val nextPlayer: PlayerBO? by lazy {
         arguments?.getParcelable(NEXT_PLAYER)
@@ -55,9 +56,9 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = ConfigPlayerObjectFragmentBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,9 +72,9 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 val action = e.action
 
-                return if (binding.configPlayerCustomAlertRecycler.canScrollHorizontally(
+                return if (binding?.configPlayerCustomAlertRecycler?.canScrollHorizontally(
                         RecyclerView.FOCUS_FORWARD
-                    )
+                    ) == true
                 ) {
                     when (action) {
                         MotionEvent.ACTION_MOVE -> rv.parent
@@ -87,7 +88,7 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
                             .requestDisallowInterceptTouchEvent(false)
                     }
 
-                    binding.configPlayerCustomAlertRecycler.removeOnItemTouchListener(this)
+                    binding?.configPlayerCustomAlertRecycler?.removeOnItemTouchListener(this)
                     true
                 }
             }
@@ -104,62 +105,65 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
             //LinearLayoutManager for mini gallery
             val linearLayoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            binding?.apply {
+                configPlayerPlayerNameTxt.setText(player.name)
+                configPlayerImg.setImageDrawable(requireContext().findUserResource(player.resource))
 
-            binding.configPlayerPlayerNameTxt.setText(player.name)
-            binding.configPlayerImg.setImageDrawable(getImage(player.resource, requireContext()))
+                configPlayerPlayerNameTxt.setOnFocusChangeListener { v, hasFocus ->
+                    val text = configPlayerPlayerNameTxt.text.toString()
+                    if (!hasFocus && text != player.name && text.isNotEmpty()) {
 
-            binding.configPlayerPlayerNameTxt.setOnFocusChangeListener { v, hasFocus ->
-                val text = binding.configPlayerPlayerNameTxt.text.toString()
-                if (!hasFocus && text != player.name && text.isNotEmpty()) {
-
-                    handleNextPlayer.nextPlayer(
-                        PlayerBO(
-                            text,
-                            player.resource,
-                            player.position
+                        handleNextPlayer.nextPlayer(
+                            PlayerBO(
+                                text,
+                                player.resource,
+                                player.position
+                            )
                         )
-                    )
+                    }
+                }
+
+                configPlayerImg.setOnClickListener {
+                    configPlayerCustomAlert.show()
+                    configPlayerCustomAlertRecycler.layoutManager = linearLayoutManager
+                    configPlayerCustomAlertRecycler.adapter = adapter
+                    configPlayerCustomAlertRecycler.addOnItemTouchListener(scrollListener)
+                    adapter.submitList(createImageList())
+                }
+
+                configPlayerStartBtn.setOnClickListener {
+                    handleNextPlayer.beginToPlay()
                 }
             }
-
-            binding.configPlayerImg.setOnClickListener {
-                binding.configPlayerCustomAlert.visibility = View.VISIBLE
-                binding.configPlayerCustomAlertRecycler.layoutManager = linearLayoutManager
-                binding.configPlayerCustomAlertRecycler.adapter = adapter
-                binding.configPlayerCustomAlertRecycler.addOnItemTouchListener(scrollListener)
-                adapter.submitList(createImageList())
-            }
-
-            binding.configPlayerStartBtn.setOnClickListener {
-                handleNextPlayer.beginToPlay()
-            }
-
         }
     }
 
 
     private fun checkAndShowOrHideDragAndButtonInfo(player: PlayerBO, maxPlayers: Int) {
-        if (player.position >= maxPlayers) {
-            binding.configPlayerNextLabel.visibility = View.GONE
-            binding.configPlayerStartBtn.visibility = View.VISIBLE
-            binding.configPlayerStartBtnLabel.visibility = View.VISIBLE
-
-        } else {
-            binding.configPlayerNextLabel.visibility = View.VISIBLE
-            binding.configPlayerStartBtn.visibility = View.GONE
-            binding.configPlayerStartBtnLabel.visibility = View.GONE
+        binding?.apply {
+            if (player.position >= maxPlayers) {
+                configPlayerNextLabel.gone()
+                configPlayerStartBtn.show()
+                configPlayerStartBtnLabel.show()
+            } else {
+                configPlayerNextLabel.show()
+                configPlayerStartBtn.gone()
+                configPlayerStartBtnLabel.gone()
+            }
         }
     }
 
     override fun onItemSelect(image: String) {
         handleNextPlayer.nextPlayer(
             PlayerBO(
-                binding.configPlayerPlayerNameTxt.text.toString(),
+                binding?.configPlayerPlayerNameTxt?.text.toString(),
                 image,
-                nextPlayer?.position?:0
+                nextPlayer?.position ?: 0
             )
         )
-        binding.configPlayerImg.setImageDrawable(getImage(image, requireContext()))
-        binding.configPlayerCustomAlert.visibility = View.GONE
+        binding?.apply {
+            configPlayerImg.setImageDrawable(requireContext().findUserResource(image))
+            configPlayerCustomAlert.gone()
+        }
     }
 }

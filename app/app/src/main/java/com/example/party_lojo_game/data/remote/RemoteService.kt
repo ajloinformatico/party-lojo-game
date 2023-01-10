@@ -1,11 +1,12 @@
 package com.example.party_lojo_game.data.remote
-import com.example.party_lojo_game.di.RemoteModule
+
 import com.example.party_lojo_game.utils.Constants
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
-
+/**
+ * Remote api service interface
+ */
 interface RemoteService {
 
     @GET(Constants.BEBE_QUIEN_URL)

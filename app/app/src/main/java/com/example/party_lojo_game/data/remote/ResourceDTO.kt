@@ -10,7 +10,7 @@ data class ResourceDTO(
     @SerializedName("id") val id: String?,
     @SerializedName("type") val type: String?,
     @SerializedName("text") val text: String?
-): Serializable
+) : Serializable
 
 
 fun ResourceDTO.toBO(): AsksBO =

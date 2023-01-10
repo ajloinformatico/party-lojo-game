@@ -21,6 +21,7 @@ class ConfigPlayerAdapter(
 
     private val listener = handleBeginBeginToPlayer
     private var playersChanged: MutableList<PlayerBO> = players.players as MutableList<PlayerBO>
+    // TODO CHECK TO REMOVE var
     private var isGalleryOpen: Boolean = false
     //Note: Boolean value to load first screen
     private var firstElement: Boolean = true
@@ -31,9 +32,15 @@ class ConfigPlayerAdapter(
 
     override fun getItemCount(): Int = players.players.size + 1
 
-    override fun createFragment(position: Int): Fragment {
+    override fun createFragment(position: Int): Fragment =
 
-        if (position == 0) {
+        if (position != 0) {
+            ConfigPlayerObjectFragment.newInstance(
+                players.players[position-1],
+                itemCount - 1,
+                this
+            )
+        } else {
             val fragment = ConfigPlayerInfoFragment()
             fragment.arguments = Bundle().apply {
                 if (itemCount > 2) {
@@ -43,17 +50,9 @@ class ConfigPlayerAdapter(
                 }
             }
             firstElement = false
-            return fragment
-
-        } else {
-
-            return ConfigPlayerObjectFragment.newInstance(
-                players.players[position-1],
-                itemCount - 1,
-                this
-            )
+            fragment
         }
-    }
+
 
     /**Notify to manager to change page*/
     override fun nextPlayer(playerBO: PlayerBO) {

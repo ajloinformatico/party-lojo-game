@@ -12,11 +12,13 @@ import androidx.navigation.fragment.navArgs
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.databinding.FragmentOnPlayeHomeBinding
-import com.example.party_lojo_game.utils.getImage
+import com.example.party_lojo_game.utils.findUserResource
+import com.example.party_lojo_game.utils.gone
+import com.example.party_lojo_game.utils.show
 
 class OnPlayHomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentOnPlayeHomeBinding
+    private var binding: FragmentOnPlayeHomeBinding? = null
     private lateinit var players: PlayersBO
     private val args: OnPlayHomeFragmentArgs by navArgs()
     private val navController: NavController by lazy { findNavController() }
@@ -30,10 +32,10 @@ class OnPlayHomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         // Inflate the layout for this fragment
         binding = FragmentOnPlayeHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,14 +46,16 @@ class OnPlayHomeFragment : Fragment() {
     }
 
     private fun renderButtonsActions() {
-        binding.fragmentOnPlayeHomeBebeQuien.setOnClickListener {
-            navigateToOnPLay(AskTypeBO.BEBE_QUIEN)
-        }
-        binding.fragmentOnPlayHomeYoNunca.setOnClickListener {
-            navigateToOnPLay(AskTypeBO.YO_NUNCA)
-        }
-        binding.fragmentOnPlayHomeVerdadOReto.setOnClickListener {
-            navigateToOnPLay(AskTypeBO.VERDAD_O_RETO)
+        binding?.apply {
+            fragmentOnPlayeHomeBebeQuien.setOnClickListener {
+                navigateToOnPLay(AskTypeBO.BEBE_QUIEN)
+            }
+            fragmentOnPlayHomeYoNunca.setOnClickListener {
+                navigateToOnPLay(AskTypeBO.YO_NUNCA)
+            }
+            fragmentOnPlayHomeVerdadOReto.setOnClickListener {
+                navigateToOnPLay(AskTypeBO.VERDAD_O_RETO)
+            }
         }
     }
 
@@ -66,192 +70,158 @@ class OnPlayHomeFragment : Fragment() {
 
     private fun renderPlayersIcons(context: Context, players: PlayersBO) {
         players.players.forEachIndexed { index, playerBO ->
-            when (index) {
+            binding?.apply {
 
-                0 -> {
-                    binding.fragmentOnPlayHomePlayer1.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                when (index) {
+                    0 -> {
+                        fragmentOnPlayHomePlayer1.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer1.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer2.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer3.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer4.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer5.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer1.show()
+                        fragmentOnPlayHomePlayer2.gone()
+                        fragmentOnPlayHomePlayer3.gone()
+                        fragmentOnPlayHomePlayer4.gone()
+                        fragmentOnPlayHomePlayer5.gone()
+                        fragmentOnPlayHomePlayer6.gone()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                1 -> {
-                    binding.fragmentOnPlayHomePlayer2.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    1 -> {
+                        fragmentOnPlayHomePlayer2.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer2.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer3.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer4.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer5.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer2.show()
+                        fragmentOnPlayHomePlayer3.gone()
+                        fragmentOnPlayHomePlayer4.gone()
+                        fragmentOnPlayHomePlayer5.gone()
+                        fragmentOnPlayHomePlayer6.gone()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                2 -> {
-                    binding.fragmentOnPlayHomePlayer3.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    2 -> {
+                        fragmentOnPlayHomePlayer3.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer3.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer4.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer5.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer3.show()
+                        fragmentOnPlayHomePlayer4.gone()
+                        fragmentOnPlayHomePlayer5.gone()
+                        fragmentOnPlayHomePlayer6.gone()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                3 -> {
-                    binding.fragmentOnPlayHomePlayer4.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    3 -> {
+                        fragmentOnPlayHomePlayer4.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer4.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer5.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer4.show()
+                        fragmentOnPlayHomePlayer5.gone()
+                        fragmentOnPlayHomePlayer6.gone()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                4 -> {
-                    binding.fragmentOnPlayHomePlayer5.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    4 -> {
+                        fragmentOnPlayHomePlayer5.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer5.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer5.show()
+                        fragmentOnPlayHomePlayer6.gone()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                5 -> {
-                    binding.fragmentOnPlayHomePlayer6.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    5 -> {
+                        fragmentOnPlayHomePlayer6.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer6.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer6.show()
+                        fragmentOnPlayHomePlayer7.gone()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                6 -> {
-                    binding.fragmentOnPlayHomePlayer7.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    6 -> {
+                        fragmentOnPlayHomePlayer7.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer7.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer7.show()
+                        fragmentOnPlayHomePlayer8.gone()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                7 -> {
-                    binding.fragmentOnPlayHomePlayer8.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    7 -> {
+                        fragmentOnPlayHomePlayer8.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer8.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer8.show()
+                        fragmentOnPlayHomePlayer9.gone()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                8 -> {
-                    binding.fragmentOnPlayHomePlayer9.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    8 -> {
+                        fragmentOnPlayHomePlayer9.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer9.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer9.show()
+                        fragmentOnPlayHomePlayer10.gone()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                9 -> {
-                    binding.fragmentOnPlayHomePlayer10.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    9 -> {
+                        fragmentOnPlayHomePlayer10.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer10.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.GONE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer10.show()
+                        fragmentOnPlayHomePlayer11.gone()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                10 -> {
-                    binding.fragmentOnPlayHomePlayer11.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    10 -> {
+                        fragmentOnPlayHomePlayer11.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer11.visibility = View.VISIBLE
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.GONE
-                }
+                        fragmentOnPlayHomePlayer11.show()
+                        fragmentOnPlayHomePlayer12.gone()
+                    }
 
-                11 -> {
-                    binding.fragmentOnPlayHomePlayer12.setImageDrawable(
-                        getImage(
-                            playerBO.resource,
-                            context
+                    11 -> {
+                        fragmentOnPlayHomePlayer12.setImageDrawable(
+                            context.findUserResource(playerBO.resource)
                         )
-                    )
-                    binding.fragmentOnPlayHomePlayer12.visibility = View.VISIBLE
+                        fragmentOnPlayHomePlayer12.show()
+                    }
                 }
             }
         }

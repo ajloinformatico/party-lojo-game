@@ -1,7 +1,6 @@
 package com.example.party_lojo_game.data.local.dao
 
 import androidx.room.*
-import com.example.party_lojo_game.data.local.dbo.BebeQuienDBO
 import com.example.party_lojo_game.data.local.dbo.VerdadOretoDBO
 import kotlinx.coroutines.flow.Flow
 

@@ -7,7 +7,8 @@ sealed class OnPlayState {
     data class RenderAsk(
         val asksBO: AsksBO,
         val player: PlayerBO
-    ): OnPlayState()
-    object Error: OnPlayState()
-    //TODO LOADING STATE
+    ) : OnPlayState()
+
+    object Error : OnPlayState()
+    object Loading : OnPlayState()
 }

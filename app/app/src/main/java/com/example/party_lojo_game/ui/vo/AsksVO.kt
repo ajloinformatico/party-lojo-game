@@ -5,4 +5,3 @@ class AsksVO(
     val text: String,
     val type: AskTypeVO,
 )
-

@@ -20,7 +20,7 @@ import timber.log.Timber
 @AndroidEntryPoint
 class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginToPlay{
 
-    private lateinit var binding: FragmentConfigPlayerManagerBinding
+    private var binding: FragmentConfigPlayerManagerBinding? = null
     private val viewModel: ConfigPlayerViewModel by viewModels()
     private val args: ConfigPlayerManagerFragmentArgs by navArgs()
 
@@ -28,23 +28,22 @@ class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginTo
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         // Inflate the layout for this fragment
         binding = FragmentConfigPlayerManagerBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.initList(this.args.numberOfPlayers)
-        viewModel.listPlayers.observe(requireActivity(), {
-            binding.pager.adapter = ConfigPlayerAdapter(this, it, this)
-        })
+        viewModel.listPlayers.observe(requireActivity()) {
+            binding?.pager?.adapter = ConfigPlayerAdapter(this, it, this)
+        }
     }
 
     /**Begin to player*/
     override fun onAllPlayersSelected(players: PlayersBO) {
-        Timber.d("Begin to player with " + players.players)
         findNavController().navigate(
             ConfigPlayerManagerFragmentDirections.actionConfigPlayersManagerToOnPlayerHomeFragment(
                 players

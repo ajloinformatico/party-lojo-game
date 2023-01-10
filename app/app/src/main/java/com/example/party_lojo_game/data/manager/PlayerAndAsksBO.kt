@@ -8,4 +8,4 @@ import kotlinx.parcelize.Parcelize
 data class PlayerAndAsksBO(
     val playerBO: PlayerBO,
     val ask: AsksBO
-): Parcelable
+) : Parcelable

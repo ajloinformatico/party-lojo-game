@@ -5,6 +5,4 @@ import java.io.Serializable
 
 data class PlayersBO(
     val players: List<PlayerBO>
-): Serializable
-
-
+) : Serializable

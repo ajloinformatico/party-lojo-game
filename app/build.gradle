@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.10" //kotlin version
+    ext.kotlin_version = "1.7.10" //kotlin version
     ext.hilt_version = "2.36" //hilt version
 
     repositories {
@@ -10,7 +10,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30" //kotlin version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10" //kotlin version
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version" //hilt version
         //nav version
         def nav_version = "2.3.5"
@@ -57,7 +57,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 

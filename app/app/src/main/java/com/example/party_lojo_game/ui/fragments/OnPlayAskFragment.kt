@@ -30,7 +30,7 @@ class OnPlayAskFragment : Fragment() {
     private lateinit var type: AskTypeBO
     private val args: OnPlayAskFragmentArgs by navArgs()
     private val onPlayViewModel: OnPlayViewModel by viewModels()
-    private lateinit var binding: FragmentOnPlayAskBinding
+    private var binding: FragmentOnPlayAskBinding? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +39,18 @@ class OnPlayAskFragment : Fragment() {
         type = args.type
     }
 
+    /**
+     * Inflate the layout for this fragment
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
+    ): View? {
         binding = FragmentOnPlayAskBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
-    //TODO: SET VIEW
+    //TODO: SET VIEW WTF !
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
