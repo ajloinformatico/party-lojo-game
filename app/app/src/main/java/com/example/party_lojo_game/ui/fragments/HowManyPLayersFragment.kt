@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.party_lojo_game.databinding.FragmentHowManyPLayersBinding
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.utils.className
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class HowManyPLayersFragment : Fragment() {
@@ -70,7 +71,7 @@ class HowManyPLayersFragment : Fragment() {
     }
 
     private fun navigateToConfigPLayerManagerFragment(n: Int) {
-        Timber.d("NAV TO CONFIG WITH $n PLAYERS")
+        InfoLojoLogger.log("NAV TO CONFIG WITH $n PLAYERS", className())
         navController.navigate(
             HowManyPLayersFragmentDirections.actionHowManyPlayersFragmentToConfigPlayersManager(
                 n

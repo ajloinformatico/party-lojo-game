@@ -6,7 +6,7 @@ import com.example.party_lojo_game.data.local.PartyLojoGameDataBase
 import com.example.party_lojo_game.data.local.dao.BebeQuienDAO
 import com.example.party_lojo_game.data.local.dao.VerdadOretoDAO
 import com.example.party_lojo_game.data.local.dao.YoNuncaDAO
-import com.example.party_lojo_game.utils.Constants
+import com.example.party_lojo_game.data.constants.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

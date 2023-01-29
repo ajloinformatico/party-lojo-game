@@ -4,7 +4,7 @@ import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.remote.RemoteService
 import com.example.party_lojo_game.data.remote.ResourceDTO
 import com.example.party_lojo_game.data.remote.toBO
-import com.example.party_lojo_game.utils.Constants
+import com.example.party_lojo_game.data.constants.Constants
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -37,5 +37,4 @@ class RemoteRepository @Inject constructor(private val remoteService: RemoteServ
 
         return returnList
     }
-
 }

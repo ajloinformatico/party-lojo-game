@@ -126,16 +126,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/config_player__custom_alert"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/black_real_trasparent"
         android:padding="@dimen/dp10"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/config_player__custom_alert__recycler"

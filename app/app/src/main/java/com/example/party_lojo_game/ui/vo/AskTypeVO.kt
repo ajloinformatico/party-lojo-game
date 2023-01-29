@@ -1,6 +1,6 @@
 package com.example.party_lojo_game.ui.vo
 
-import com.example.party_lojo_game.utils.Constants
+import com.example.party_lojo_game.data.constants.Constants
 
 enum class AskTypeVO(type: String) {
     BEBE_QUIEN(Constants.BEBE_QUIEN_DTO_TYPE),

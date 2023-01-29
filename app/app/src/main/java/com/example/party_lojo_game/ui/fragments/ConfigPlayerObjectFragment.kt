@@ -19,8 +19,7 @@ import com.example.party_lojo_game.utils.gone
 import com.example.party_lojo_game.utils.show
 
 
-class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
-    ConfigImageAddImageAdapter.ConfigImageSelectedImage {
+class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment() {
 
     interface HandleNextPlayer {
         fun nextPlayer(playerBO: PlayerBO)
@@ -39,7 +38,6 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
             }
         }
     }
-
 
     private var binding: ConfigPlayerObjectFragmentBinding? = null
 
@@ -62,8 +60,6 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val listener: ConfigImageAddImageAdapter.ConfigImageSelectedImage = this
 
         /**Control for scrollview
          * https://medium.com/@goforbg/horizontal-recyclerview-inside-viewpager2-handling-scrolls-982da4aa454b
@@ -100,11 +96,6 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
         nextPlayer?.let { player ->
             checkAndShowOrHideDragAndButtonInfo(player, maxPlayers)
 
-            //Gallery
-            val adapter = ConfigImageAddImageAdapter(listener, player.resource)
-            //LinearLayoutManager for mini gallery
-            val linearLayoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             binding?.apply {
                 configPlayerPlayerNameTxt.setText(player.name)
                 configPlayerImg.setImageDrawable(requireContext().findUserResource(player.resource))
@@ -124,11 +115,19 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
                 }
 
                 configPlayerImg.setOnClickListener {
-                    configPlayerCustomAlert.show()
-                    configPlayerCustomAlertRecycler.layoutManager = linearLayoutManager
-                    configPlayerCustomAlertRecycler.adapter = adapter
+                    configPlayerCustomAlertRecycler.layoutManager = LinearLayoutManager(
+                        context,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
+                    configPlayerCustomAlertRecycler.adapter = ConfigImageAddImageAdapter(
+                        player.resource,
+                        ::onImageSelectedActionManager
+                    ).apply {
+                        submitList(createImageList())
+                    }
                     configPlayerCustomAlertRecycler.addOnItemTouchListener(scrollListener)
-                    adapter.submitList(createImageList())
+                    configPlayerCustomAlert.show()
                 }
 
                 configPlayerStartBtn.setOnClickListener {
@@ -153,7 +152,7 @@ class ConfigPlayerObjectFragment(listener: HandleNextPlayer) : Fragment(),
         }
     }
 
-    override fun onItemSelect(image: String) {
+    private fun onImageSelectedActionManager(image: String) {
         handleNextPlayer.nextPlayer(
             PlayerBO(
                 binding?.configPlayerPlayerNameTxt?.text.toString(),

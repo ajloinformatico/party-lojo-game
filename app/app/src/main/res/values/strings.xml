@@ -30,4 +30,10 @@
     <string name="verdad_o_reto">Verdad o reto</string>
     <string name="yo_nunca">Yo nunca</string>
     <string name="bebe_quien">Bebe quien</string>
+    <string name="next_player">Siguiente jugador</string>
+
+    <!-- region onPlayFragment -->
+    <string name="bebe_quien_label_title">Bebe quien …</string>
+    <string name="yo_nunca_label_title">Yo nunca …</string>
+    <!-- endregion onPlayFragment -->
 </resources>

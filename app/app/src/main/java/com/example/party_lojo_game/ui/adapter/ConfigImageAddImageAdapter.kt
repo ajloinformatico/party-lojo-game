@@ -13,16 +13,10 @@ import com.example.party_lojo_game.utils.gone
 import com.example.party_lojo_game.utils.show
 
 class ConfigImageAddImageAdapter(
-    listener: ConfigImageSelectedImage,
-    var actualImage: String
+    var actualImage: String,
+    private val onImageSelected: (String) -> Unit
 ) : ListAdapter<String,
         ConfigImageAddImageAdapter.ConfigImageAddImageAdapterHolder>(ImageComparator()) {
-
-    interface ConfigImageSelectedImage {
-        fun onItemSelect(image: String)
-    }
-
-    private val listenerConfigImageSelectedImage: ConfigImageSelectedImage = listener
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -35,7 +29,7 @@ class ConfigImageAddImageAdapter(
 
     override fun onBindViewHolder(holder: ConfigImageAddImageAdapterHolder, position: Int) {
         val image: String = getItem(position)
-        holder.bind(image, actualImage, listenerConfigImageSelectedImage)
+        holder.bind(image, actualImage, onImageSelected)
     }
 
     class ConfigImageAddImageAdapterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,7 +41,7 @@ class ConfigImageAddImageAdapter(
         fun bind(
             image: String,
             actualImage: String,
-            listenerConfigImageSelectedImage: ConfigImageSelectedImage
+            onImageSelected: (String) -> Unit
         ) {
             imagePreview.setImageDrawable(itemView.context.findUserResource(image))
             if (image == actualImage) {
@@ -55,7 +49,7 @@ class ConfigImageAddImageAdapter(
             } else {
                 imageSelected.gone()
             }
-            imagePreview.setOnClickListener { listenerConfigImageSelectedImage.onItemSelect(image) }
+            imagePreview.setOnClickListener { onImageSelected(image) }
         }
     }
 

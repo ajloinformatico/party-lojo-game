@@ -16,5 +16,4 @@ interface VerdadOretoDAO {
 
     @Query("DELETE FROM verdadoreto WHERE id = :id")
     suspend fun deleteVerdadOretoAsk(id: Long)
-
 }

@@ -5,7 +5,7 @@ import com.example.party_lojo_game.data.manager.PlayerBO
 
 sealed class OnPlayState {
     data class RenderAsk(
-        val asksBO: AsksBO,
+        val asksBO: AsksBO?,
         val player: PlayerBO
     ) : OnPlayState()
 

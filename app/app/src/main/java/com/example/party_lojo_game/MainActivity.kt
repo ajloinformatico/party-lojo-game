@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.party_lojo_game.databinding.ActivityMainBinding
 import com.example.party_lojo_game.ui.viewmodel.MainViewModel
-import com.example.party_lojo_game.utils.Constants
+import com.example.party_lojo_game.data.constants.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,11 +58,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.configPlayersManager -> {
                     location = Constants.CONFIG_PLAYERS_LOCATION
                 }
-
-                // TODO CHECK THIS TO SET THE CORRECT DESTINATION
-                R.id.configPlayersManager -> {
-                    location = Constants.ON_GAME_PLAY
-                }
             }
         }
     }
@@ -98,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                 dialog.create()
                 dialog.show()
             }
+
             Constants.ON_GAME_PLAY -> {
                 val dialog = AlertDialog.Builder(this)
                 dialog.setMessage(this.resources.getString(R.string.on_play_back))

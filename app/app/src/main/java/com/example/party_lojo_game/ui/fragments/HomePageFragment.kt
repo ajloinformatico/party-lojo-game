@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.party_lojo_game.databinding.FragmentHomePageBinding
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.utils.className
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
@@ -31,12 +32,12 @@ class HomePageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.homePageStartBtn?.setOnClickListener {
-            Timber.d("User go to play")
+            InfoLojoLogger.log("User go to play", className())
             navigation.navigate(HomePageFragmentDirections.actionHomePageFragmentToHowManyPlayersFragment())
         }
 
         binding?.homePageOptionsBtn?.setOnClickListener {
-            Timber.d("Go to options menu")
+            InfoLojoLogger.log("Go to options menu", className())
         }
     }
 }

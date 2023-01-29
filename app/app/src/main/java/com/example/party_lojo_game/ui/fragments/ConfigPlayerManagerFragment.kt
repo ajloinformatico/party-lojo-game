@@ -1,13 +1,11 @@
 package com.example.party_lojo_game.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.party_lojo_game.data.manager.PlayersBO
@@ -15,15 +13,13 @@ import com.example.party_lojo_game.databinding.FragmentConfigPlayerManagerBindin
 import com.example.party_lojo_game.ui.adapter.ConfigPlayerAdapter
 import com.example.party_lojo_game.ui.viewmodel.ConfigPlayerViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
-class ConfigPlayerManagerFragment: Fragment(), ConfigPlayerAdapter.HandleBeginToPlay{
+class ConfigPlayerManagerFragment : Fragment(), ConfigPlayerAdapter.HandleBeginToPlay {
 
     private var binding: FragmentConfigPlayerManagerBinding? = null
     private val viewModel: ConfigPlayerViewModel by viewModels()
     private val args: ConfigPlayerManagerFragmentArgs by navArgs()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

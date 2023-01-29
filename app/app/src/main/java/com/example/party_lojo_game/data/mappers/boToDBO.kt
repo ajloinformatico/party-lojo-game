@@ -16,7 +16,7 @@ fun AsksBO.toVo(): AsksVO =
             AskTypeBO.BEBE_QUIEN -> AskTypeVO.BEBE_QUIEN
             AskTypeBO.VERDAD_O_RETO -> AskTypeVO.VERDAD_O_RETO
             AskTypeBO.YO_NUNCA -> AskTypeVO.YO_NUNCA
-            AskTypeBO.UNKNONW -> AskTypeVO.UNKNONW
+            AskTypeBO.UNKNOWN -> AskTypeVO.UNKNONW
         }
     )
 
@@ -40,7 +40,7 @@ fun AsksBO.toDBO(): Any? {
                 text = this.text
             )
         }
-        AskTypeBO.UNKNONW -> {
+        AskTypeBO.UNKNOWN -> {
             null
         }
     }

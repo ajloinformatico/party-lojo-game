@@ -23,7 +23,6 @@ class OnPlayHomeFragment : Fragment() {
     private val args: OnPlayHomeFragmentArgs by navArgs()
     private val navController: NavController by lazy { findNavController() }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         players = args.players
