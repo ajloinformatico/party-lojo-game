@@ -50,14 +50,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.homePageFragment -> {
                     location = Constants.HOME_PAGE_LOCATION
                 }
-
                 R.id.howManyPlayersFragment -> {
                     location = ""
                 }
-
                 R.id.configPlayersManager -> {
                     location = Constants.CONFIG_PLAYERS_LOCATION
                 }
+                R.id.OnPlayYoNuncaAndBebeQuienFragment -> {
+                    location = Constants.ON_GAME_PLAY
+                }
+
             }
         }
     }

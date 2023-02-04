@@ -60,7 +60,7 @@ class OnPlayHomeFragment : Fragment() {
 
     private fun navigateToOnPLay(type: AskTypeBO) {
         navController.navigate(
-            OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayAskMannager(
+            OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayToNuncaAndbebeQuienFragment(
                 players,
                 type
             )

@@ -9,32 +9,31 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.navArgs
 import com.example.party_lojo_game.R
-import com.example.party_lojo_game.data.constants.Constants
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
+import com.example.party_lojo_game.data.constants.Constants
 import com.example.party_lojo_game.data.local.dbo.toBO
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
-import com.example.party_lojo_game.databinding.FragmentOnPlayAskBinding
-import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.databinding.FragmentOnPlayYoNuncaAndBebeQuienBinding
 import com.example.party_lojo_game.ui.adapter.OnPlayState
 import com.example.party_lojo_game.ui.viewmodel.OnPlayViewModel
-import com.example.party_lojo_game.utils.*
+import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.findUserResource
+import com.example.party_lojo_game.utils.gone
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-const val ARG_PLAYER = "ARG_PLAYER"
-const val ARG_ASK = "ARG_ASK"
 
 @AndroidEntryPoint
-class OnPlayAskFragment : Fragment() {
+class OnPlayYoNuncaAndBebeQuienFragment : Fragment() {
 
     private lateinit var players: PlayersBO
     private lateinit var type: AskTypeBO
-    private val args: OnPlayAskFragmentArgs by navArgs()
+    private val args: OnPlayYoNuncaAndBebeQuienFragmentArgs by navArgs()
     private val onPlayViewModel: OnPlayViewModel by viewModels()
-    private var binding: FragmentOnPlayAskBinding? = null
+    private var binding: FragmentOnPlayYoNuncaAndBebeQuienBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +48,11 @@ class OnPlayAskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOnPlayAskBinding.inflate(inflater, container, false)
+        binding = FragmentOnPlayYoNuncaAndBebeQuienBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
-    //TODO: SET VIEW WTF !
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
