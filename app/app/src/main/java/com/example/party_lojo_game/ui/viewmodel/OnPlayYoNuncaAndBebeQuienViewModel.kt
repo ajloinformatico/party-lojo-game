@@ -4,26 +4,24 @@ import androidx.lifecycle.*
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.local.dbo.BebeQuienDBO
-import com.example.party_lojo_game.data.local.dbo.VerdadOretoDBO
 import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.data.repository.LocalRepository
 import com.example.party_lojo_game.ui.adapter.OnPlayState
-import com.example.party_lojo_game.data.constants.Constants
-import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.random.Random
 
 @HiltViewModel
-class OnPlayViewModel @Inject constructor(
+class OnPlayYoNuncaAndBebeQuienViewModel @Inject constructor(
     private val localRepository: LocalRepository
 ) : ViewModel() {
 
-    var playerIndex: Int = 0
+    private var playerIndex: Int = 0
     private val asks = mutableListOf<AsksBO>()
     private val _players = mutableListOf<PlayerBO>()
 
@@ -49,12 +47,6 @@ class OnPlayViewModel @Inject constructor(
      */
     fun getYoNuncaAsks(): LiveData<List<YoNuncaDBO>> =
         localRepository.selectAllFromYoNunca.asLiveData()
-
-    /**
-     * Get all verdadORetoAsks as liveData
-     */
-    fun getVerdadORetoAsks(): LiveData<List<VerdadOretoDBO>> =
-        localRepository.selectAllFromVerdadOreto.asLiveData()
 
     private fun getRandomQuestion(asksBO: List<AsksBO>? = null): AsksBO? =
         asksBO?.takeIf { it.isNotEmpty() }?.let {
@@ -97,48 +89,17 @@ class OnPlayViewModel @Inject constructor(
                 }
             }
 
-            when (type) {
-                AskTypeBO.BEBE_QUIEN, AskTypeBO.YO_NUNCA -> {
-                    _state.value =
-                        getPlayer()?.let { playerBO ->
-                            getRandomQuestion(asksBO)?.let { askBO ->
-                                OnPlayState.RenderAsk(
-                                    askBO,
-                                    playerBO
-                                )
-                            } ?: run {
-                                // TODO ERROR SCREEN
-                                InfoLojoLogger.log(
-                                    "SHOW WEEOE",
-                                    className()
-                                )
-                                OnPlayState.Loading
-                            }
-                        } ?: run {
-                            // TODO ERROR SCREEN
-                            InfoLojoLogger.log(
-                                "SHOW WEEOE",
-                                className()
-                            )
-                            OnPlayState.Loading
-                        }
-                }
-                AskTypeBO.VERDAD_O_RETO -> {
-                    //TODO VERDAD O RETO SCREEN
-                    _state.value = OnPlayState.Loading
-                    InfoLojoLogger.log(
-                        "TODO VERDAD O RETO SCREEN",
-                        className()
-                    )
-
-                }
-                AskTypeBO.UNKNOWN -> {
-                    // TODO ERRROR SCREEN
-                    _state.value = OnPlayState.Loading
-                    InfoLojoLogger.log(
-                        Constants.ERROR_UNKNOWN_ASK_TYPE,
-                        className()
-                    )
+            if (type == AskTypeBO.BEBE_QUIEN || type == AskTypeBO.YO_NUNCA) {
+                _state.value = getPlayer()?.let { playerBO ->
+                    getRandomQuestion(asksBO)?.let { askBO ->
+                        OnPlayState.RenderAsk(
+                            askBO, playerBO
+                        )
+                    } ?: run {
+                        OnPlayState.Error
+                    }
+                } ?: run {
+                    OnPlayState.Error
                 }
             }
         }

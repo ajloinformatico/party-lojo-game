@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_monument_natested_Scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="@dimen/dp20"
+    tools:context=".ui.fragments.OnPlayYoNuncaAndBebeQuienFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.fragments.OnPlayYoNuncaAndBebeQuienFragment">
+
+            <TextView
+                android:id="@+id/player_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/primary_slow_purple"
+                android:textSize="@dimen/sp50"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ms saitan" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fragment_on_play_ask_player_img"
+                android:layout_width="@dimen/dp90"
+                android:layout_height="@dimen/dp90"
+                android:layout_margin="@dimen/dp5"
+                android:src="@mipmap/user11"
+                app:civ_border_color="@color/primary_slow_purple"
+                app:civ_border_width="@dimen/dp1"
+                app:layout_constraintBottom_toTopOf="@id/fragment_on_play_ask__ghost_spearator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/player_name" />
+
+            <View
+                android:id="@+id/fragment_on_play_ask__ghost_spearator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/onPlaySectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_slow_purple"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_on_play_ask__ghost_spearator"
+                tools:text="@string/yo_nunca_label_title" />
+
+            <TextView
+                android:id="@+id/fragment_on_play_ask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp24"
+                app:layout_constraintTop_toBottomOf="@id/onPlaySectionLabel"
+                tools:text="Yo nunca he hecho cosas misteriosa debajo de un arbol en el patio de un familiar" />
+
+            <Button
+                android:id="@+id/nextPlayerButton"
+                style="@style/onPlayButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_player"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_on_play_ask" />
+
+            <include
+                android:id="@+id/loading"
+                layout="@layout/loading" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/error_screen"
+            android:visibility="gone"
+            layout="@layout/row_error_screen" />
+
+    </FrameLayout>
+</androidx.core.widget.NestedScrollView>

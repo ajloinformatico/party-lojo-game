@@ -47,24 +47,30 @@ class OnPlayHomeFragment : Fragment() {
     private fun renderButtonsActions() {
         binding?.apply {
             fragmentOnPlayeHomeBebeQuien.setOnClickListener {
-                navigateToOnPLay(AskTypeBO.BEBE_QUIEN)
+                navigateToOnPLayYoNuncaAndBebeQuien(AskTypeBO.BEBE_QUIEN)
             }
             fragmentOnPlayHomeYoNunca.setOnClickListener {
-                navigateToOnPLay(AskTypeBO.YO_NUNCA)
+                navigateToOnPLayYoNuncaAndBebeQuien(AskTypeBO.YO_NUNCA)
             }
             fragmentOnPlayHomeVerdadOReto.setOnClickListener {
-                navigateToOnPLay(AskTypeBO.VERDAD_O_RETO)
+                // TODO own fragment
             }
         }
     }
 
-    private fun navigateToOnPLay(type: AskTypeBO) {
+    private fun navigateToOnPLayYoNuncaAndBebeQuien(type: AskTypeBO) {
         navController.navigate(
-            OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayAskMannager(
+            OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayToNuncaAndbebeQuienFragment(
                 players,
                 type
             )
         )
+    }
+
+    private fun navigateToOnPlayVerdadOReto() {
+//        navController.navigate(
+//            OnPlayHomeFragmentDirections.actionOnPLayHomeMannagerToOnPlayVerdadORetoFragment(players)
+//        )
     }
 
     private fun renderPlayersIcons(context: Context, players: PlayersBO) {

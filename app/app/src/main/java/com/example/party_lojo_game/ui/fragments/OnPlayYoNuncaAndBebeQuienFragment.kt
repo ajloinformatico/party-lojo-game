@@ -9,32 +9,31 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.navArgs
 import com.example.party_lojo_game.R
-import com.example.party_lojo_game.data.constants.Constants
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
+import com.example.party_lojo_game.data.constants.Constants
 import com.example.party_lojo_game.data.local.dbo.toBO
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
-import com.example.party_lojo_game.databinding.FragmentOnPlayAskBinding
-import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.databinding.FragmentOnPlayYoNuncaAndBebeQuienBinding
 import com.example.party_lojo_game.ui.adapter.OnPlayState
-import com.example.party_lojo_game.ui.viewmodel.OnPlayViewModel
-import com.example.party_lojo_game.utils.*
+import com.example.party_lojo_game.ui.viewmodel.OnPlayYoNuncaAndBebeQuienViewModel
+import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.findUserResource
+import com.example.party_lojo_game.utils.gone
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
+import com.example.party_lojo_game.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-const val ARG_PLAYER = "ARG_PLAYER"
-const val ARG_ASK = "ARG_ASK"
 
 @AndroidEntryPoint
-class OnPlayAskFragment : Fragment() {
+class OnPlayYoNuncaAndBebeQuienFragment : Fragment() {
 
     private lateinit var players: PlayersBO
     private lateinit var type: AskTypeBO
-    private val args: OnPlayAskFragmentArgs by navArgs()
-    private val onPlayViewModel: OnPlayViewModel by viewModels()
-    private var binding: FragmentOnPlayAskBinding? = null
+    private val args: OnPlayYoNuncaAndBebeQuienFragmentArgs by navArgs()
+    private val onPlayYoNuncaAndBebeQuienViewModel: OnPlayYoNuncaAndBebeQuienViewModel by viewModels()
+    private var binding: FragmentOnPlayYoNuncaAndBebeQuienBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +48,11 @@ class OnPlayAskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOnPlayAskBinding.inflate(inflater, container, false)
+        binding = FragmentOnPlayYoNuncaAndBebeQuienBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
-    //TODO: SET VIEW WTF !
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
@@ -61,20 +60,25 @@ class OnPlayAskFragment : Fragment() {
     }
 
     private fun initViews() {
-        binding?.nextPlayerButton?.setOnClickListener {
-            onPlayViewModel.manageNextPlayerButtonAction(type)
+        binding?.apply {
+            nextPlayerButton.setOnClickListener {
+                onPlayYoNuncaAndBebeQuienViewModel.manageNextPlayerButtonAction(type)
+            }
+            errorScreen.goBackBtn.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
         }
     }
 
     private fun initViewModel() {
-        onPlayViewModel.state.observe(viewLifecycleOwner) { state ->
+        onPlayYoNuncaAndBebeQuienViewModel.state.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is OnPlayState.RenderAsk -> showAsk(state.asksBO, state.player)
                 is OnPlayState.Loading -> showLoading()
                 is OnPlayState.Error -> showError()
             }
         }
-        onPlayViewModel.init(players)
+        onPlayYoNuncaAndBebeQuienViewModel.init(players)
         prepareAsks()
     }
 
@@ -82,18 +86,16 @@ class OnPlayAskFragment : Fragment() {
     private fun prepareAsks() {
         val owner: LifecycleOwner = viewLifecycleOwner
         when (type) {
-            AskTypeBO.YO_NUNCA -> onPlayViewModel.getYoNuncaAsks().observe(owner) { asksDBO ->
-                onPlayViewModel.renderTypes(type, asksDBO.map { it.toBO() })
-            }
-            AskTypeBO.BEBE_QUIEN -> onPlayViewModel.getBebeQuienAsks().observe(owner) { asksDBO ->
-                onPlayViewModel.renderTypes(type, asksDBO.map { it.toBO() })
-            }
-            AskTypeBO.VERDAD_O_RETO -> onPlayViewModel.getVerdadORetoAsks()
+            AskTypeBO.YO_NUNCA -> onPlayYoNuncaAndBebeQuienViewModel.getYoNuncaAsks()
                 .observe(owner) { asksDBO ->
-                    onPlayViewModel.renderTypes(type, asksDBO.map { it.toBO() })
+                    onPlayYoNuncaAndBebeQuienViewModel.renderTypes(type, asksDBO.map { it.toBO() })
                 }
-            AskTypeBO.UNKNOWN -> {
-                // TODO ERROR
+            AskTypeBO.BEBE_QUIEN -> onPlayYoNuncaAndBebeQuienViewModel.getBebeQuienAsks()
+                .observe(owner) { asksDBO ->
+                    onPlayYoNuncaAndBebeQuienViewModel.renderTypes(type, asksDBO.map { it.toBO() })
+                }
+            else -> {
+                showError()
                 InfoLojoLogger.log(Constants.ERROR_UNKNOWN_ASK_TYPE, className())
             }
         }
@@ -101,6 +103,8 @@ class OnPlayAskFragment : Fragment() {
 
     private fun hideLoading() {
         binding?.apply {
+            content.show()
+            errorScreen.root.gone()
             loading.root.gone()
             fragmentOnPlayAsk.show()
             playerName.show()
@@ -112,13 +116,14 @@ class OnPlayAskFragment : Fragment() {
 
     private fun showLoading() {
         binding?.apply {
+            content.show()
             loading.root.show()
+            errorScreen.root.gone()
             fragmentOnPlayAsk.gone()
             playerName.gone()
             nextPlayerButton.gone()
             onPlaySectionLabel.gone()
             fragmentOnPlayAskPlayerImg.gone()
-
         }
     }
 
@@ -131,7 +136,7 @@ class OnPlayAskFragment : Fragment() {
                     AskTypeBO.BEBE_QUIEN -> resources.getString(R.string.bebe_quien_label_title)
                     else -> {
                         showError()
-                        ""
+                        resources.getString(R.string.empty)
                     }
                 }
                 fragmentOnPlayAsk.text = ask.text
@@ -148,8 +153,14 @@ class OnPlayAskFragment : Fragment() {
         binding = null
     }
 
+    /**
+     * Hide content and show error
+     */
     private fun showError() {
-        // TODO ERROR SCREEN
+        binding?.apply {
+            content.gone()
+            errorScreen.root.show()
+        }
         InfoLojoLogger.log("Error", className())
     }
 }

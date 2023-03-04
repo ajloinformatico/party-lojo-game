@@ -35,5 +35,9 @@
     <!-- region onPlayFragment -->
     <string name="bebe_quien_label_title">Bebe quien …</string>
     <string name="yo_nunca_label_title">Yo nunca …</string>
+    <string name="title_error">Error</string>
+    <string name="go_back">go back</string>
+    <string name="something_was_wrong">SomeThing was wrong</string>
+    <string name="empty">""</string>
     <!-- endregion onPlayFragment -->
 </resources>
