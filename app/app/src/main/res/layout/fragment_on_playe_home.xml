@@ -178,10 +178,12 @@
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_10"
         tools:visibility="visible" />
 
+    <!-- TODO FUTURE VERSION -->
     <Button
         android:id="@+id/fragment_on_play_home__verdad_o_reto"
         style="@style/onPlayButtons"
         android:text="@string/verdad_o_reto"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
