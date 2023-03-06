@@ -18,7 +18,7 @@ import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.databinding.FragmentOnPlayYoNuncaAndBebeQuienBinding
 import com.example.party_lojo_game.ui.adapter.OnPlayState
 import com.example.party_lojo_game.ui.viewmodel.OnPlayYoNuncaAndBebeQuienViewModel
-import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.extensions.className
 import com.example.party_lojo_game.utils.findUserResource
 import com.example.party_lojo_game.utils.gone
 import com.example.party_lojo_game.utils.logger.InfoLojoLogger

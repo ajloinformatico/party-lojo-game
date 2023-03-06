@@ -40,4 +40,10 @@
     <string name="something_was_wrong">SomeThing was wrong</string>
     <string name="empty">""</string>
     <!-- endregion onPlayFragment -->
+
+    <!-- region menu -->
+    <string name="add_new_questions">Add new questions</string>
+    <string name="add_your_own_images">Add your own images</string>
+    <string name="edit_your_questions">Edit your questions</string>
+    <!-- endregion menu -->
 </resources>
