@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.party_lojo_game.databinding.FragmentHowManyPLayersBinding
 import com.example.party_lojo_game.utils.logger.InfoLojoLogger
-import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.extensions.className
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
