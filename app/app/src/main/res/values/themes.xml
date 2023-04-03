@@ -43,5 +43,7 @@
         <item name="android:textSize">@dimen/sp20</item>
     </style>
 
+    <!-- TODO NEW THEMES -->
+
 
 </resources>
