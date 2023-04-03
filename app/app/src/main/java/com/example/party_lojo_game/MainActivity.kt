@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.howManyPlayersFragment,
                 R.id.editQuestionFragment,
                 R.id.addImageFragment,
-                R.id.addQuestionFragment -> {
+                R.id.addQuestionFragment,
+                R.id.infolojoWebViewFragment -> {
                     location = LocationState.UNKNOWN
                 }
                 R.id.configPlayersManager -> {
