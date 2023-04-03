@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -15,6 +14,7 @@ import com.example.party_lojo_game.utils.extensions.className
 import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val MENU_NAVIGATION_DELAY: Long = 500L
 
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
@@ -52,22 +52,31 @@ class HomePageFragment : Fragment() {
         binding?.apply {
             navView.bringToFront()
             navView.setNavigationItemSelectedListener { menuItem ->
-                when (menuItem.title) {
-                    resources.getString(R.string.add_new_questions) -> {
-                        // TODO
-                    }
-                    resources.getString(R.string.add_your_own_images) -> {
-                        // TODO
-                    }
-                    resources.getString(R.string.edit_your_questions) -> {
-                        // TODO
-                    }
-                }
-                Toast.makeText(context, menuItem.title, Toast.LENGTH_SHORT).show()
-                InfoLojoLogger.log(menuItem.title.toString(), className())
+                val menuTitle = menuItem.title.toString()
+                InfoLojoLogger.log(menuTitle, className())
                 drawerLayout.closeDrawer(GravityCompat.START)
-                true
+                drawerLayout.postDelayed({
+                    navigateMenu(menuTitle)
+                }, MENU_NAVIGATION_DELAY)
+
             }
         }
+    }
+
+    /** do navigation */
+    private fun navigateMenu(menuTitle: String): Boolean {
+        navigation.navigate(
+            when (menuTitle) {
+                resources.getString(R.string.add_new_questions) ->
+                    HomePageFragmentDirections.actionHomePageFragmentToAddQuestionFragment()
+                resources.getString(R.string.add_your_own_images) ->
+                    HomePageFragmentDirections.actionHomePageFragmentToAddImageFragment()
+                resources.getString(R.string.edit_your_questions) ->
+                    HomePageFragmentDirections.actionHomePageFragmentToEditQuestionFragment()
+                else ->
+                    HomePageFragmentDirections.actionHomePageFragmentToEditQuestionFragment()
+            }
+        )
+        return true
     }
 }
