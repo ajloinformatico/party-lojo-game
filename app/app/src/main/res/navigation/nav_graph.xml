@@ -19,6 +19,30 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
 
+        <action
+            android:id="@+id/action_homePageFragment_to_editQuestionFragment"
+            app:destination="@id/editQuestionFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_homePageFragment_to_addImageFragment"
+            app:destination="@id/addImageFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
+        <action
+            android:id="@+id/action_homePageFragment_to_addQuestionFragment"
+            app:destination="@id/addQuestionFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+
     </fragment>
     <fragment
         android:id="@+id/howManyPlayersFragment"
@@ -102,4 +126,22 @@
             app:argType="com.example.party_lojo_game.data.AskTypeBO"
             app:nullable="false" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editQuestionFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.EditQuestionFragment"
+        android:label="fragment_edit_question"
+        tools:layout="@layout/fragment_edit_question" />
+
+    <fragment
+        android:id="@+id/addImageFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.AddImageFragment"
+        android:label="fragment_add_image"
+        tools:layout="@layout/fragment_add_image" />
+
+    <fragment
+        android:id="@+id/addQuestionFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.AddQuestionFragment"
+        android:label="fragment_add_question"
+        tools:layout="@layout/fragment_add_question" />
 </navigation>

@@ -48,7 +48,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.homePageFragment -> {
                     location = LocationState.HOME_PAGE_LOCATION
                 }
-                R.id.howManyPlayersFragment -> {
+                // Note: Unknown locations
+                R.id.howManyPlayersFragment,
+                R.id.editQuestionFragment,
+                R.id.addImageFragment,
+                R.id.addQuestionFragment -> {
                     location = LocationState.UNKNOWN
                 }
                 R.id.configPlayersManager -> {
@@ -60,7 +64,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.onPlayerHomeFragment -> {
                     location = LocationState.ON_PLAYER_HOME_FRAGMENT
                 }
-
             }
         }
     }
@@ -79,8 +82,6 @@ class MainActivity : AppCompatActivity() {
                     }.setNegativeButton(R.string.dialog_no) { _, _ -> /*no-loop*/ }
                 dialog.create()
                 dialog.show()
-
-
             }
             LocationState.CONFIG_PLAYERS_LOCATION, LocationState.ON_PLAYER_HOME_FRAGMENT -> {
                 val dialog = AlertDialog.Builder(this)
