@@ -20,7 +20,8 @@
         app:headerLayout="@layout/home_menu_header"
         app:itemIconTint="@color/primary_hard_purple"
         app:itemTextColor="@color/primary_hard_purple"
-        app:menu="@menu/home_menu" />
+        app:menu="@menu/home_menu"
+        tools:visibility="gone" />
     <!-- endregion leftmenu -->
 
     <!-- region content -->
@@ -33,13 +34,11 @@
 
         <TextView
             android:id="@+id/fragment_home_page__title"
+            style="@style/titleText.bold"
             android:layout_width="@dimen/dp300"
             android:layout_height="@dimen/dp150"
             android:gravity="center|top"
             android:text="@string/title"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp50"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/home_page__options_btn"
             app:layout_constraintEnd_toEndOf="@id/home_page__start_btn"
             app:layout_constraintHorizontal_bias="0.494"
@@ -49,16 +48,13 @@
 
         <TextView
             android:id="@+id/fragment_home_page__subtitle"
+            style="@style/normalTextWhite.center"
             android:layout_width="@dimen/dp300"
             android:layout_height="@dimen/dp50"
-            android:gravity="center"
             android:text="@string/subtitle"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_home_page__title" />
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/home_page__options_btn"
@@ -105,12 +101,10 @@
 
         <TextView
             android:id="@+id/infolojoWebView"
+            style="@style/subMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
             android:text="@string/about"
-            android:textColor="@color/white"
-            android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

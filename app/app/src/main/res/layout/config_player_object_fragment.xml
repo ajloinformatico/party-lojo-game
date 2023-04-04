@@ -42,34 +42,24 @@
                 app:layout_constraintTop_toBottomOf="@id/config_player__img" />
 
 
-
             <TextView
                 android:id="@+id/config_player__player_name_label"
+                style="@style/InputTextLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Introduce el nombre de tu personaje"
-                android:textSize="@dimen/sp20"
-                android:textColor="@color/primary_slow_purple"
                 android:layout_marginTop="@dimen/dp100"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/config_player__player_name_txt"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/config_player__imagen_lavel"
-                app:layout_constraintBottom_toTopOf="@id/config_player__player_name_txt"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/config_player__imagen_lavel" />
 
             <EditText
                 android:id="@+id/config_player__player_name_txt"
+                style="@style/inputText"
                 android:layout_width="@dimen/dp300"
                 android:layout_height="wrap_content"
-                android:background="@color/primary_slow_purple"
-                android:ellipsize="end"
+                android:autofillHints="username"
                 android:hint="@string/config_player_name_txt"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="5dp"
-                android:scrollHorizontally="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/config_player__player_name_label" />
@@ -77,26 +67,24 @@
 
             <TextView
                 android:id="@+id/config_player__next_label"
+                style="@style/normalText.bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp30"
                 android:layout_marginTop="@dimen/dp150"
+                android:layout_marginBottom="@dimen/dp30"
                 android:gravity="center"
                 android:text="@string/toca_para_seguir"
-                android:textColor="@color/primary_slow_purple"
-                android:textSize="@dimen/sp20"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/config_player__player_name_txt" />
 
             <ImageButton
                 android:id="@+id/config_player__start_btn"
+                style="@style/actionCircleButton"
                 android:layout_width="@dimen/dp60"
                 android:layout_height="@dimen/dp60"
-                android:layout_marginBottom="@dimen/dp30"
-                android:background="@drawable/button_border_rounds"
                 android:layout_marginTop="@dimen/dp150"
-                android:backgroundTint="@color/primary_slow_purple"
+                android:layout_marginBottom="@dimen/dp30"
+                android:contentDescription="@null"
                 android:src="@drawable/ic_play_icon"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -109,13 +97,11 @@
 
             <TextView
                 android:id="@+id/config_player__start_btn__label"
+                style="@style/normalText.bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/toca_para_comenzar_el_juego"
-                android:textColor="@color/primary_slow_purple"
-                android:textSize="@dimen/sp20"
-                android:textStyle="bold"
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/config_player__start_btn"
                 tools:visibility="visible" />
@@ -144,14 +130,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/normalTextWhite.bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="@dimen/dp10"
             android:text="@string/elige_una_foto"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp20"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/config_player__custom_alert__recycler" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
