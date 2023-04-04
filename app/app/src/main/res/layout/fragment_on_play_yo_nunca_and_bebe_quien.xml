@@ -25,11 +25,9 @@
 
             <TextView
                 android:id="@+id/player_name"
+                style="@style/titleText.slowPurple.center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/primary_slow_purple"
-                android:textSize="@dimen/sp50"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Ms saitan" />
 
@@ -60,21 +58,20 @@
 
             <TextView
                 android:id="@+id/onPlaySectionLabel"
+                style="@style/onPlayLabelQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_slow_purple"
-                android:textSize="30sp"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fragment_on_play_ask__ghost_spearator"
                 tools:text="@string/yo_nunca_label_title" />
 
             <TextView
                 android:id="@+id/fragment_on_play_ask"
+                style="@style/normalTextWhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp24"
+                android:textSize="@dimen/sp20"
                 app:layout_constraintTop_toBottomOf="@id/onPlaySectionLabel"
                 tools:text="Yo nunca he hecho cosas misteriosa debajo de un arbol en el patio de un familiar" />
 
@@ -97,8 +94,8 @@
 
         <include
             android:id="@+id/error_screen"
-            android:visibility="gone"
-            layout="@layout/row_error_screen" />
+            layout="@layout/row_error_screen"
+            android:visibility="gone" />
 
     </FrameLayout>
 </androidx.core.widget.NestedScrollView>

@@ -48,11 +48,13 @@ dependencies {
     // common
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:$appCompatVersion"
     implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
 
     // retrofit
-    implementation "com.squareup.retrofit2:retrofit:$gsonVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
 
     // location
@@ -63,10 +65,10 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     // room
-    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
-    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.legacy:legacy-support-v4:$androidXLegacy"
+    kapt "androidx.room:room-compiler:$kaptVersion"
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
     // lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"

@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_slow_purple"
+    android:background="@color/black"
     android:padding="@dimen/dp10"
     tools:context=".ui.fragments.OnPlayHomeFragment">
 
     <TextView
         android:id="@+id/fragment_on_play_home__title"
+        style="@style/titleText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/que_empieze_la_fiesta"
-        android:textColor="@color/primary_hard_purple"
-        android:textSize="@dimen/sp50"
         android:paddingBottom="@dimen/dp20"
+        android:text="@string/que_empieze_la_fiesta"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- region player images -->
+    <!-- TODO FLEXBOX -->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_1"
         android:layout_width="@dimen/dp55"
@@ -27,8 +27,8 @@
         android:src="@mipmap/user12"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
         tools:visibility="visible" />
 
@@ -41,10 +41,10 @@
         android:src="@mipmap/user11"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_3"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_1"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_on_play_home__player_3"
@@ -54,9 +54,9 @@
         android:src="@mipmap/user10"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
+        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_4"
         app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_2"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
-        app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_4"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -67,8 +67,8 @@
         android:src="@mipmap/user9"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_3"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_5"
+        app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_3"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__title"
         tools:visibility="visible" />
 
@@ -94,8 +94,8 @@
         android:src="@mipmap/user7"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_7"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
 
@@ -134,8 +134,8 @@
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_10"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_8"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_5"
         tools:visibility="visible" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -160,8 +160,8 @@
         android:src="@mipmap/user19"
         android:visibility="gone"
         app:civ_border_width="@dimen/dp1"
-        app:layout_constraintStart_toStartOf="@id/fragment_on_play_home__player_7"
         app:layout_constraintEnd_toStartOf="@id/fragment_on_play_home__player_12"
+        app:layout_constraintStart_toStartOf="@id/fragment_on_play_home__player_7"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_10"
         tools:visibility="visible" />
 
@@ -177,6 +177,7 @@
         app:layout_constraintStart_toEndOf="@id/fragment_on_play_home__player_11"
         app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__player_10"
         tools:visibility="visible" />
+    <!-- endregion player images -->
 
     <!-- TODO FUTURE VERSION -->
     <Button
@@ -184,28 +185,28 @@
         style="@style/onPlayButtons"
         android:text="@string/verdad_o_reto"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/guideline3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_on_play_home__yo_nunca"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragment_on_play_home__yo_nunca"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline3" />
 
     <Button
         android:id="@+id/fragment_on_play_home__yo_nunca"
         style="@style/onPlayButtons"
         android:text="@string/yo_nunca"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__verdad_o_reto"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragment_on_playe_home__bebe_quien"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragment_on_playe_home__bebe_quien"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__verdad_o_reto" />
 
     <Button
         android:id="@+id/fragment_on_playe_home__bebe_quien"
         style="@style/onPlayButtons"
         android:text="@string/bebe_quien"
-        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__yo_nunca"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_on_play_home__yo_nunca" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -214,7 +215,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="329dp" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

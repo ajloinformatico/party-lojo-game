@@ -8,6 +8,7 @@ object Constants {
         "2211e1142f7805947a782cf99daf99d8/raw/14a6cb78dc96aee67b66e4e4ae04a88f38afa077/party_lojo_game_verdad_o_reto.json"
     const val BEBE_QUIEN_URL =
         "485a425065fe67edfb354e4b6ff08f4e/raw/3839826df28e61a3b9441a39e8e9a862c6ffefde/party_lojo_game_bebe_quien.json"
+    const val INFOLOJO_WEB_SITE = "https://www.infolojo.es"
     // endregion online urls
 
     // region DTO layer types

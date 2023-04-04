@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -11,63 +10,53 @@
 
     <TextView
         android:id="@+id/config_player_info__one_player_title"
+        style="@style/titleText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp50"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:visibility="gone"
         android:text="@string/configure_user"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/config_player_info__more_player_title"
+        style="@style/titleText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp50"
         android:text="@string/configure_all_users"
-        android:textColor="@color/white"
         android:visibility="gone"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"/>
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/config_player_info__one_player_explain"
+        style="@style/normalText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp20"
-        android:gravity="center"
-        android:visibility="gone"
-        android:textColor="@color/primary_slow_purple"
         android:text="@string/configure_user__how_to"
-        app:layout_constraintTop_toBottomOf="@id/config_player_info__one_player_title"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/config_player_info__slide_to_continue_label"
-        tools:visibility="visible"/>
+        app:layout_constraintTop_toBottomOf="@id/config_player_info__one_player_title"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/config_player_info__more_player_explain"
+        style="@style/normalText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/configure_user__all_users"
-        android:textSize="@dimen/sp20"
-        android:gravity="center"
         android:visibility="gone"
-        android:textColor="@color/primary_slow_purple"
-        tools:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/config_player_info__slide_to_continue_label"
         app:layout_constraintTop_toBottomOf="@id/config_player_info__more_player_title"
-        app:layout_constraintBottom_toTopOf="@id/config_player_info__slide_to_continue_label"/>
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/config_player_info__slide_to_continue_label"
+        style="@style/mediumText.center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp30"
-        android:text="@string/config_player_swipe_to_continue"
-        android:textColor="@color/primary_slow_purple"
         android:layout_marginBottom="@dimen/dp100"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:text="@string/config_player_swipe_to_continue"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

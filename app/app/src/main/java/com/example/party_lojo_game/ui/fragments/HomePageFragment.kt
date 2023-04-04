@@ -41,8 +41,13 @@ class HomePageFragment : Fragment() {
             }
 
             homePageOptionsBtn.setOnClickListener {
+                InfoLojoLogger.log("User Go to options menu", className())
                 drawerLayout.openDrawer(GravityCompat.START)
-                InfoLojoLogger.log("Go to options menu", className())
+            }
+
+            infolojoWebView.setOnClickListener {
+                InfoLojoLogger.log("User go to infolojo", className())
+                navigation.navigate(HomePageFragmentDirections.actionHomePageFragmentToInfolojoWebView())
             }
             addNavigationItemSelectedListener()
         }
@@ -58,7 +63,6 @@ class HomePageFragment : Fragment() {
                 drawerLayout.postDelayed({
                     navigateMenu(menuTitle)
                 }, MENU_NAVIGATION_DELAY)
-
             }
         }
     }

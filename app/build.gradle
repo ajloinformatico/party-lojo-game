@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.7.20" //kotlin version
+    ext.kotlin_version = "1.8.0" //kotlin version
     ext.hilt_version = "2.36" //hilt version
 
     repositories {
@@ -20,28 +20,29 @@ buildscript {
 
     //Dependencies version
     ext {
-        activityVersion = '1.7.0-alpha02'
+        activityVersion = '1.8.0-alpha02'
         // nav
         nav_version = '2.5.3'
         nav_compose = '2.6.0-alpha04'
-        appCompatVersion = '1.4.1'
         constraintLayoutVersion = '2.1.4'
         coreTestingVersion = '2.1.0'
         coroutines = '1.4.1'
         coroutinesAndroid = '1.6.4'
-        lifecycleVersion = '2.5.1'
+        lifecycleVersion = '2.6.1'
         materialVersion = '1.6.0'
+        kaptVersion = '2.4.3'
         roomVersion = '2.4.3'
+        androidXLegacy = '1.0.0'
         // testing
         junitVersion = '4.13.2'
         espressoVersion = '3.1.0'
         androidxJunitVersion = '1.1.2'
         //nav compose
-        navcompose = '2.4.0-alpha04'
+        navcompose = '2.6.0-alpha08'
         //retrofit
         retrofit = '2.0.9'
-        //appcompat
-        appCompatVersion = '1.3.0'
+        // app version
+        appCompatVersion = '1.6.1'
         //glide
         glideVersion = '4.12.0'
         //location
@@ -49,7 +50,9 @@ buildscript {
         //Circle image
         circleImageViewVersion = '3.1.0'
         //gson
-        gsonVersion = '2.9.0'
+        gsonVersion = '2.10.1'
+        //retrofit
+        retrofitVersion= '2.9.0'
     }
 }
 

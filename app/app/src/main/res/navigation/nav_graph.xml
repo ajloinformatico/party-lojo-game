@@ -43,6 +43,12 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
 
+        <action
+            android:id="@+id/action_homePageFragment_to_infolojoWebView"
+            app:destination="@id/infolojoWebViewFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+
     </fragment>
     <fragment
         android:id="@+id/howManyPlayersFragment"
@@ -144,4 +150,11 @@
         android:name="com.example.party_lojo_game.ui.fragments.AddQuestionFragment"
         android:label="fragment_add_question"
         tools:layout="@layout/fragment_add_question" />
+
+    <!-- Infolojo webView-->
+    <fragment
+        android:id="@+id/infolojoWebViewFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.InfolojoWebView"
+        android:label="fragment_infolojo_web_view"
+        tools:layout="@layout/fragment_infolojo_web_view" />
 </navigation>

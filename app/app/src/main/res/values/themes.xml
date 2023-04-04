@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -43,5 +43,103 @@
         <item name="android:textSize">@dimen/sp20</item>
     </style>
 
+    <style name="circleImageBigRow">
+        <item name="android:width">@dimen/dp150</item>
+        <item name="android:height">@dimen/dp150</item>
+    </style>
 
+    <style name="InputTextLabel">
+        <item name="android:text">@string/input_player_name</item>
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="android:textColor">@color/primary_slow_purple</item>
+    </style>
+
+    <style name="onPlayLabelQuestion">
+        <item name="android:textColor">@color/primary_slow_purple</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="inputText">
+        <item name="android:background">@color/primary_slow_purple</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">@dimen/dp5</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black_real_trasparent</item>
+    </style>
+
+    <style name="inputText.bold" parent="inputText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="normalText">
+        <item name="android:textColor">@color/primary_slow_purple</item>
+        <item name="android:textSize">@dimen/sp20</item>
+    </style>
+
+    <style name="normalText.center">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="normalText.bold" parent="normalText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mediumText" parent="normalText">
+        <item name="android:textSize">@dimen/sp30</item>
+    </style>
+
+    <style name="mediumText.center" parent="mediumText">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="normalTextWhite" parent="normalText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp20</item>
+    </style>
+
+    <style name="normalTextWhite.center" parent="normalTextWhite">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="normalTextWhite.bold" parent="normalTextWhite">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleText">
+        <item name="android:textSize">@dimen/sp50</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="titleText.bold" parent="titleText">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleText.center" parent="titleText">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="titleText.slowPurple" parent="titleText">
+        <item name="android:textColor">@color/primary_slow_purple</item>
+    </style>
+
+    <style name="titleText.slowPurple.center" parent="titleText.slowPurple">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="subMessage">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="actionCircleButton">
+        <item name="android:background">@drawable/button_border_rounds</item>
+        <item name="android:backgroundTint">@color/primary_slow_purple</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
 </resources>

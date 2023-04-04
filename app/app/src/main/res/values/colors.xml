@@ -13,4 +13,5 @@
     <color name="primary_slow_purple">#FFBB86FC</color>
     <color name="black_transparent">#8FBB86FC</color>
     <color name="black_real_trasparent">#B5252525</color>
+    <color name="transparent">#00000000</color>
 </resources>
