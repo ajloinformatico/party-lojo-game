@@ -1,13 +1,14 @@
 package com.example.party_lojo_game.ui.adapter
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.party_lojo_game.data.manager.PlayerBO
 import com.example.party_lojo_game.data.manager.PlayersBO
 import com.example.party_lojo_game.ui.fragments.ConfigPlayerInfoFragment
 import com.example.party_lojo_game.ui.fragments.ConfigPlayerObjectFragment
+import com.example.party_lojo_game.utils.extensions.className
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 
 const val NEXT_PLAYER: String = "N_PLAYER"
 const val MAX_PLAYERS: String = "MAX_PLAYERS"
@@ -21,6 +22,7 @@ class ConfigPlayerAdapter(
 
     private val listener = handleBeginBeginToPlayer
     private var playersChanged: MutableList<PlayerBO> = players.players as MutableList<PlayerBO>
+
     //Note: Boolean value to load first screen
     private var firstElement: Boolean = true
 
@@ -34,7 +36,7 @@ class ConfigPlayerAdapter(
 
         if (position != 0) {
             ConfigPlayerObjectFragment.newInstance(
-                players.players[position-1],
+                players.players[position - 1],
                 itemCount - 1,
                 this
             )
@@ -63,7 +65,7 @@ class ConfigPlayerAdapter(
             }
         }
         playersChanged = newList
-        Log.d("TAG::UPDATING LIST", playersChanged.toString())
+        InfoLojoLogger.log("update player $playersChanged", className())
     }
 
     /**Begin to play*/

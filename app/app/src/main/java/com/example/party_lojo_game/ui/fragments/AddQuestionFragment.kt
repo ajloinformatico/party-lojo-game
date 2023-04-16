@@ -1,13 +1,10 @@
 package com.example.party_lojo_game.ui.fragments
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.party_lojo_game.R
@@ -17,8 +14,6 @@ import com.example.party_lojo_game.ui.vo.AddNewAsKErrorsType
 import com.example.party_lojo_game.ui.vo.AddNewAskState
 import com.example.party_lojo_game.utils.gone
 import com.example.party_lojo_game.utils.messages.InfoLojoSnackBarMaker
-import com.example.party_lojo_game.utils.messages.InfoLojoToastLength
-import com.example.party_lojo_game.utils.messages.InfoLojoToastMaker
 import com.example.party_lojo_game.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 

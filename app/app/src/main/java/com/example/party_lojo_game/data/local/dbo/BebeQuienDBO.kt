@@ -2,11 +2,12 @@ package com.example.party_lojo_game.data.local.dbo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 
-@Entity(tableName = "bebequien")
+@Entity(tableName = "bebequien", indices = [Index(value = ["text"], unique = true)])
 data class BebeQuienDBO(
     @PrimaryKey(autoGenerate = true)
     val id: Long,

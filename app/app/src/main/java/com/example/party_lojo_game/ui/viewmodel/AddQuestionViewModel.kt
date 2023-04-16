@@ -1,19 +1,21 @@
 package com.example.party_lojo_game.ui.viewmodel
 
 import android.content.res.Resources
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.mappers.toAskTypeBO
 import com.example.party_lojo_game.data.repository.LocalRepository
 import com.example.party_lojo_game.ui.vo.AddNewAsKErrorsType
 import com.example.party_lojo_game.ui.vo.AddNewAskState
+import com.example.party_lojo_game.utils.className
 import com.example.party_lojo_game.utils.extensions.checkAskContent
 import com.example.party_lojo_game.utils.extensions.checkInputs
 import com.example.party_lojo_game.utils.extensions.checkType
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -37,23 +39,41 @@ class AddQuestionViewModel @Inject constructor(
         content: String,
         type: String,
         resources: Resources
-    ) {
+    ) = viewModelScope.launch {
         val askBO = AsksBO(
             id = 0L,
             text = content,
             type = type.toAskTypeBO(resources)
         )
-        viewModelScope.launch {
-            // Note: Error load error state
-            if (!askBO.checkInputs()) {
-                Log.d("TonyTest", "something was wrong")
-                _state.value = addErrorState(askBO)
-            } else {
-                Log.d("TonyTest", "can add to database")
-                // TODO ADD TO DATABASE
-                _state.value = AddNewAskState.AddedToDatabase()
+        // Load state
+        if (!askBO.checkInputs()) {
+            _state.value = addErrorState(askBO)
+        } else {
+            saveAsk(askBO)
+        }
+    }
 
+    private fun saveAsk(askBO: AsksBO) = viewModelScope.launch {
+        val ownerId = when (askBO.type) {
+            AskTypeBO.VERDAD_O_RETO -> localRepository.insertVerdadOretoAsk(askBO)
+            AskTypeBO.YO_NUNCA -> localRepository.insertYoNuncaAsk(askBO)
+            AskTypeBO.BEBE_QUIEN -> localRepository.insertBebeQuienAsk(askBO)
+            AskTypeBO.UNKNOWN -> {
+                null
             }
+        }
+        ownerId?.let {
+            InfoLojoLogger.log("Added ask with id $ownerId", className())
+            _state.postValue(AddNewAskState.AddedToDatabase())
+        } ?: run {
+            InfoLojoLogger.log("Something was wrong", className())
+            _state.postValue(
+                AddNewAskState.Error(
+                    AddNewAsKErrorsType.CONTENT_ALLREADY_SAVED.apply {
+                        value = "${askBO.text} ${AddNewAskState.CONTENT_ALLREADY_SAVED_VALUE}"
+                    }
+                )
+            )
         }
     }
 
