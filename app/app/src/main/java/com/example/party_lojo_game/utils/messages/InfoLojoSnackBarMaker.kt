@@ -5,6 +5,7 @@ import android.view.View
 import com.example.party_lojo_game.R
 import com.google.android.material.snackbar.Snackbar
 
+/** Singleton to create custom Snack bars */
 object InfoLojoSnackBarMaker {
 
     fun showError(context: Context, view: View, text: String) =
@@ -44,7 +45,7 @@ object InfoLojoSnackBarMaker {
         )
     }
 
-    /** Init a SnackBar with textColor and backGroundColor*/
+    /** Init a SnackBar with textColor and backGroundColor */
     private fun create(
         view: View,
         text: String,

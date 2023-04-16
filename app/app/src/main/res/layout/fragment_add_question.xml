@@ -36,12 +36,12 @@
         <Spinner
             android:id="@+id/typeMultiChoiceSpinner"
             android:layout_width="0dp"
-            android:layout_height="22dp"
+            android:layout_height="@dimen/dp22"
             android:layout_marginStart="@dimen/dp10"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp5"
             android:background="@color/primary_slow_purple"
             android:gravity="center"
-            android:paddingBottom="2dp"
+            android:paddingBottom="@dimen/dp2"
             app:layout_constraintBottom_toBottomOf="@id/typeLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/typeLabel"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
-                android:src="@drawable/baseline_save_24" />
+                android:src="@drawable/ic_save_icon" />
         </androidx.cardview.widget.CardView>
 
         <TextView

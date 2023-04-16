@@ -27,7 +27,6 @@ class LocalRepository @Inject constructor(
         verdadOretoDAO.selectAllFromVerdadOreto()
 
     val selectAllFromYoNunca: Flow<List<YoNuncaDBO>> = yoNuncaDAO.selectAllFromYoNunca()
-
     // endregion selects
 
     // region inserts

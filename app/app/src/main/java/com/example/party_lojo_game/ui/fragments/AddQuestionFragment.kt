@@ -82,7 +82,7 @@ class AddQuestionFragment : Fragment() {
                         InfoLojoSnackBarMaker.showSuccess(
                             context = requireContext(),
                             view = view,
-                            text = state.message
+                            text = resources.getString(R.string.added_to_database_sucsses)
                         )
                     }
                 }
@@ -115,7 +115,23 @@ class AddQuestionFragment : Fragment() {
                     InfoLojoSnackBarMaker.showError(
                         view = view,
                         context = requireContext(),
-                        text = errorType.value
+                        text = when (errorType) {
+                            AddNewAsKErrorsType.CONTENT_ERROR -> {
+                                resources.getString(R.string.content_error)
+                            }
+                            AddNewAsKErrorsType.CONTENT_ALREADY_SAVED -> {
+                                errorType.value +
+                                        " " +
+                                        resources.getString(R.string.content_already_saved)
+                            }
+                            AddNewAsKErrorsType.TYPE_ERROR -> {
+                                resources.getString(R.string.type_error)
+                            }
+                            AddNewAsKErrorsType.CONTENT_ERROR_AND_TYPE_ERROR -> {
+                                resources.getString(R.string.content_and_type_error)
+                            }
+                            else -> ""
+                        }
                     )
                 }
             }

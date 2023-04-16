@@ -22,7 +22,7 @@
         android:id="@+id/row_config_player_object_selected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_check_24"
+        android:src="@drawable/ic_check_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

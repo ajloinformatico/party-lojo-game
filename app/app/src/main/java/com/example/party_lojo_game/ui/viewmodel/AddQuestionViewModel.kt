@@ -69,8 +69,8 @@ class AddQuestionViewModel @Inject constructor(
             InfoLojoLogger.log("Something was wrong", className())
             _state.postValue(
                 AddNewAskState.Error(
-                    AddNewAsKErrorsType.CONTENT_ALLREADY_SAVED.apply {
-                        value = "${askBO.text} ${AddNewAskState.CONTENT_ALLREADY_SAVED_VALUE}"
+                    AddNewAsKErrorsType.CONTENT_ALREADY_SAVED.apply {
+                        value = askBO.text
                     }
                 )
             )

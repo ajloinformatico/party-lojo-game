@@ -70,5 +70,11 @@
         <item>@string/yo_nunca</item>
         <item>@string/bebe_quien</item>
     </string-array>
+
+    <string name="content_error">Error de contenido</string>
+    <string name="type_error">El tipo no es valido</string>
+    <string name="content_and_type_error">El error y el tipo no es valido</string>
+    <string name="added_to_database_sucsses">La pregunta se ha guardado correctamente</string>
+    <string name="content_already_saved">"ya existe en la base de datos"</string>
     <!-- endregion addQuestion -->
 </resources>

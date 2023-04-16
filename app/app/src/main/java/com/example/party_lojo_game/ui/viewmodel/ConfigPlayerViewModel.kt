@@ -18,7 +18,6 @@ class ConfigPlayerViewModel @Inject constructor() : ViewModel() {
     private val _listPlayers = MutableLiveData<PlayersBO>()
     val listPlayers: LiveData<PlayersBO> = _listPlayers
 
-
     fun initList(numberOfPlayers: Int) {
         _numberOfPlayers = numberOfPlayers
         val list = mutableListOf<PlayerBO>()
@@ -34,7 +33,6 @@ class ConfigPlayerViewModel @Inject constructor() : ViewModel() {
         _listPlayers.value = playersBO
         InfoLojoLogger.log("update to the next player", className())
     }
-
 
     fun haveNext(actualPosition: Int): Boolean =
         _numberOfPlayers != 0 && actualPosition < _numberOfPlayers
