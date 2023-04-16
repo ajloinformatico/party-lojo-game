@@ -44,7 +44,7 @@ class EditQuestionFragment : Fragment() {
         binding?.title?.setOnClickListener {
             InfoLojoToastMaker.createSimpleToast(
                 requireContext(),
-                resources.getString(R.string.add_new_questions)
+                resources.getString(R.string.edit_your_questions)
             )
         }
         binding?.errorScreen?.goBackBtn?.setOnClickListener {
