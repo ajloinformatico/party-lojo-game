@@ -68,7 +68,13 @@
         <item name="android:padding">@dimen/dp5</item>
         <item name="android:scrollHorizontally">true</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/black_real_trasparent</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <style name="inputText.notSelectable" parent="inputText">
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:focusable">false</item>
+
     </style>
 
     <style name="inputText.bold" parent="inputText">

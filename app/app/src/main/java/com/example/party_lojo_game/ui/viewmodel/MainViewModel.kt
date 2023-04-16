@@ -78,6 +78,7 @@ class MainViewModel @Inject constructor(
                             localRepository.insertYoNuncaAsk(asksBOremote)
                             InfoLojoLogger.log(Constants.ADDED_YOU_NUNCA_TO_DATABASE, className())
                         }
+
                         AskTypeBO.VERDAD_O_RETO -> {
                             localRepository.insertVerdadOretoAsk(asksBOremote)
                             InfoLojoLogger.log(
@@ -86,11 +87,13 @@ class MainViewModel @Inject constructor(
                             )
 
                         }
+
                         AskTypeBO.BEBE_QUIEN -> {
                             localRepository.insertBebeQuienAsk(asksBOremote)
                             InfoLojoLogger.log(Constants.ADDED_BEBE_QUIEN_TO_DATABASE, className())
 
                         }
+
                         AskTypeBO.UNKNOWN -> {
                             InfoLojoLogger.log(Constants.ERROR_UNKNOWN_ASK_TYPE, className())
                             /*no-loop*/

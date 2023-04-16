@@ -6,11 +6,11 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/add_new_question_menu_option"
-            android:icon="@drawable/ic_text"
+            android:icon="@drawable/ic_text_icon"
             android:title="@string/add_new_questions" />
         <item
             android:id="@+id/add_new_images_menu_options"
-            android:icon="@drawable/ic_camera"
+            android:icon="@drawable/ic_camera_icon"
             android:title="@string/add_your_own_images" />
         <item
             android:id="@+id/edit_your_qustions"

@@ -1,5 +1,7 @@
 package com.example.party_lojo_game.data.repository
 
+import android.database.sqlite.SQLiteConstraintException
+import androidx.annotation.WorkerThread
 import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.local.dao.BebeQuienDAO
 import com.example.party_lojo_game.data.local.dao.VerdadOretoDAO
@@ -8,6 +10,8 @@ import com.example.party_lojo_game.data.local.dbo.BebeQuienDBO
 import com.example.party_lojo_game.data.local.dbo.VerdadOretoDBO
 import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 import com.example.party_lojo_game.ui.base.RepositoryBase
+import com.example.party_lojo_game.utils.className
+import com.example.party_lojo_game.utils.logger.InfoLojoLogger
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -23,17 +27,31 @@ class LocalRepository @Inject constructor(
         verdadOretoDAO.selectAllFromVerdadOreto()
 
     val selectAllFromYoNunca: Flow<List<YoNuncaDBO>> = yoNuncaDAO.selectAllFromYoNunca()
-
     // endregion selects
 
     // region inserts
-    suspend fun insertBebeQuienAsk(askBO: AsksBO): Long =
+    @WorkerThread
+    suspend fun insertBebeQuienAsk(askBO: AsksBO): Long? = try {
         bebeQuienDAO.insertBebeQuienAsk(BebeQuienDBO(0, askBO.text))
+    } catch (e: SQLiteConstraintException) {
+        InfoLojoLogger.log("Error: $askBO is already in database", className())
+        null
+    }
 
-    suspend fun insertYoNuncaAsk(askBO: AsksBO): Long =
+    @WorkerThread
+    suspend fun insertYoNuncaAsk(askBO: AsksBO): Long? = try {
         yoNuncaDAO.insertYoNuncaAsk(YoNuncaDBO(0, askBO.text))
+    } catch (e: SQLiteConstraintException) {
+        InfoLojoLogger.log("Error: $askBO is already in database", className())
+        null
+    }
 
-    suspend fun insertVerdadOretoAsk(askBO: AsksBO): Long =
+    @WorkerThread
+    suspend fun insertVerdadOretoAsk(askBO: AsksBO): Long? = try {
         verdadOretoDAO.insertVerdadOretoAsk(VerdadOretoDBO(0, askBO.text))
+    } catch (e: SQLiteConstraintException) {
+        InfoLojoLogger.log("Error: $askBO is already in database", className())
+        null
+    }
     // endregion inserts
 }

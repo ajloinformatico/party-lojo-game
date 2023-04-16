@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 val dialog = AlertDialog.Builder(this)
                 dialog.setMessage(this.resources.getString(R.string.exit_app))
                     .setTitle(this.resources.getString(R.string.exit_app_title))
-                    .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning))
+                    .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning_icon))
                     .setPositiveButton(R.string.dialog_si) { _, _ ->
                         super.onBackPressed()
                         finishActivity(0)
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                 val dialog = AlertDialog.Builder(this)
                 dialog.setMessage(this.resources.getString(R.string.on_play_back))
                     .setTitle(this.resources.getString(R.string.important_config))
-                    .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning))
+                    .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning_icon))
                     .setPositiveButton(R.string.dialog_si) { _, _ ->
                         super.onBackPressed()
                     }

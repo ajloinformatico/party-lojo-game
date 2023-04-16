@@ -6,6 +6,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#00FF0A</color>
+    <color name="red">#FF0000</color>
     <color name="primary_black">#000000</color>
     <color name="primary_navy">#150050</color>
     <color name="primary_hard_purple">#3F0071</color>
@@ -13,5 +15,6 @@
     <color name="primary_slow_purple">#FFBB86FC</color>
     <color name="black_transparent">#8FBB86FC</color>
     <color name="black_real_trasparent">#B5252525</color>
+    <color name="hint">#4D005C</color>
     <color name="transparent">#00000000</color>
 </resources>

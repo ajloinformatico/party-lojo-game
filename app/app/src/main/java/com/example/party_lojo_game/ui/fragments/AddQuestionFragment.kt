@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.party_lojo_game.R
 import com.example.party_lojo_game.databinding.FragmentAddQuestionBinding
 import com.example.party_lojo_game.ui.viewmodel.AddQuestionViewModel
+import com.example.party_lojo_game.ui.vo.AddNewAsKErrorsType
 import com.example.party_lojo_game.ui.vo.AddNewAskState
 import com.example.party_lojo_game.utils.gone
-import com.example.party_lojo_game.utils.messages.InfoLojoToastMaker
+import com.example.party_lojo_game.utils.messages.InfoLojoSnackBarMaker
 import com.example.party_lojo_game.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,15 +43,32 @@ class AddQuestionFragment : Fragment() {
     }
 
     private fun initViews() {
-        binding?.title?.setOnClickListener {
-            InfoLojoToastMaker.createSimpleToast(
+        binding?.apply {
+            initTypeSpinner()
+            errorScreen.goBackBtn.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+            saveBtn.setOnClickListener {
+                viewModel.saveBtnClick(
+                    content = editText.text.toString(),
+                    type = typeMultiChoiceSpinner.selectedItem.toString(),
+                    resources = resources
+                )
+            }
+        }
+    }
+
+    /** Prepare spinner by setting adapter */
+    private fun initTypeSpinner() {
+        val typeMultiChoiceSpinnerAdapter: ArrayAdapter<CharSequence> =
+            ArrayAdapter.createFromResource(
                 requireContext(),
-                resources.getString(R.string.add_new_questions),
-            )
-        }
-        binding?.errorScreen?.goBackBtn?.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
+                R.array.type_question_array,
+                R.layout.spinner_typed_array_item
+            ).apply {
+                setDropDownViewResource(R.layout.spinner_typed_array_drop_down_item)
+            }
+        binding?.typeMultiChoiceSpinner?.adapter = typeMultiChoiceSpinnerAdapter
     }
 
     private fun initViewModel() {
@@ -57,7 +76,16 @@ class AddQuestionFragment : Fragment() {
             when (state) {
                 is AddNewAskState.Loading -> showLoading()
                 is AddNewAskState.Render -> render()
-                is AddNewAskState.Error -> showError()
+                is AddNewAskState.Error -> manageError(state.type)
+                is AddNewAskState.AddedToDatabase -> {
+                    binding?.root?.let { view ->
+                        InfoLojoSnackBarMaker.showSuccess(
+                            context = requireContext(),
+                            view = view,
+                            text = resources.getString(R.string.added_to_database_sucsses)
+                        )
+                    }
+                }
             }
         }
         viewModel.init()
@@ -79,7 +107,38 @@ class AddQuestionFragment : Fragment() {
         }
     }
 
-    private fun showError() {
+    private fun manageError(errorType: AddNewAsKErrorsType) {
+        when (errorType) {
+            AddNewAsKErrorsType.UNKNOWN -> loadErrorScreen()
+            else -> {
+                binding?.root?.let { view ->
+                    InfoLojoSnackBarMaker.showError(
+                        view = view,
+                        context = requireContext(),
+                        text = when (errorType) {
+                            AddNewAsKErrorsType.CONTENT_ERROR -> {
+                                resources.getString(R.string.content_error)
+                            }
+                            AddNewAsKErrorsType.CONTENT_ALREADY_SAVED -> {
+                                errorType.value +
+                                        " " +
+                                        resources.getString(R.string.content_already_saved)
+                            }
+                            AddNewAsKErrorsType.TYPE_ERROR -> {
+                                resources.getString(R.string.type_error)
+                            }
+                            AddNewAsKErrorsType.CONTENT_ERROR_AND_TYPE_ERROR -> {
+                                resources.getString(R.string.content_and_type_error)
+                            }
+                            else -> ""
+                        }
+                    )
+                }
+            }
+        }
+    }
+
+    private fun loadErrorScreen() {
         binding?.apply {
             loading.root.gone()
             content.gone()
