@@ -2,6 +2,7 @@ package com.example.party_lojo_game.data.repository
 
 import android.database.sqlite.SQLiteConstraintException
 import androidx.annotation.WorkerThread
+import com.example.party_lojo_game.data.AskTypeBO
 import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.data.local.dao.BebeQuienDAO
 import com.example.party_lojo_game.data.local.dao.VerdadOretoDAO
@@ -54,4 +55,28 @@ class LocalRepository @Inject constructor(
         null
     }
     // endregion inserts
+
+    // region remove
+    suspend fun deleteMonument(id: Long, type: AskTypeBO): Boolean {
+        return when (type) {
+            AskTypeBO.YO_NUNCA -> {
+                yoNuncaDAO.deleteYoNuncaAsk(id)
+                true
+            }
+
+            AskTypeBO.BEBE_QUIEN -> {
+                bebeQuienDAO.deleteBebeQuienAsk(id)
+                true
+            }
+
+            AskTypeBO.VERDAD_O_RETO -> {
+                verdadOretoDAO.deleteVerdadOretoAsk(id)
+                true
+            }
+
+            AskTypeBO.UNKNOWN -> {
+                false
+            }
+        }
+    }
 }

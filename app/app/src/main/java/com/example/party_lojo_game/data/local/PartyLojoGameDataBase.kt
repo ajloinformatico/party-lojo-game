@@ -11,7 +11,7 @@ import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 
 @Database(
     entities = [BebeQuienDBO::class, VerdadOretoDBO::class, YoNuncaDBO::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class PartyLojoGameDataBase : RoomDatabase() {

@@ -2,11 +2,11 @@ package com.example.party_lojo_game.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.party_lojo_game.data.constants.Constants
 import com.example.party_lojo_game.data.local.PartyLojoGameDataBase
 import com.example.party_lojo_game.data.local.dao.BebeQuienDAO
 import com.example.party_lojo_game.data.local.dao.VerdadOretoDAO
 import com.example.party_lojo_game.data.local.dao.YoNuncaDAO
-import com.example.party_lojo_game.data.constants.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +25,7 @@ object LocalModule {
             appContext,
             PartyLojoGameDataBase::class.java,
             Constants.DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
     @Provides
     @Singleton

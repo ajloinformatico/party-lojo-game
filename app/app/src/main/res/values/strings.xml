@@ -77,4 +77,12 @@
     <string name="added_to_database_sucsses">La pregunta se ha guardado correctamente</string>
     <string name="content_already_saved">"ya existe en la base de datos"</string>
     <!-- endregion addQuestion -->
+
+    <!-- region editQuestion -->
+    <string name="edit_question_action">¿Qué quieres hacer?</string>
+    <string name="edit">Editar</string>
+    <string name="remove">Eliminar</string>
+    <string name="removed_success">La pregunta ha sido eliminada correctamente</string>
+    <string name="removed_fail">ha habido un error al eliminar la preguntar</string>
+    <!-- endregion editQuestion -->
 </resources>

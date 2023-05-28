@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         when (location) {
             LocationState.HOME_PAGE_LOCATION -> {
-                val dialog = AlertDialog.Builder(this)
+                val dialog = AlertDialog.Builder(this, R.style.MyDialogTheme)
                 dialog.setMessage(this.resources.getString(R.string.exit_app))
                     .setTitle(this.resources.getString(R.string.exit_app_title))
                     .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning_icon))
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 dialog.show()
             }
             LocationState.CONFIG_PLAYERS_LOCATION, LocationState.ON_PLAYER_HOME_FRAGMENT -> {
-                val dialog = AlertDialog.Builder(this)
+                val dialog = AlertDialog.Builder(this, R.style.MyDialogTheme)
                 dialog.setMessage(this.resources.getString(R.string.on_play_back))
                     .setTitle(this.resources.getString(R.string.important_config))
                     .setIcon(ContextCompat.getDrawable(this, R.drawable.ic_warning_icon))
