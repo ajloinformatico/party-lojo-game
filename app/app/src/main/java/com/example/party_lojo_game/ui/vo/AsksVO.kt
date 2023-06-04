@@ -1,5 +1,7 @@
 package com.example.party_lojo_game.ui.vo
 
+import com.example.party_lojo_game.data.AsksBO
+
 sealed class AsksVO(
     open val id: Long,
     open val type: AskTypeVO
@@ -16,3 +18,9 @@ sealed class AsksVO(
         override val type: AskTypeVO
     ) : AsksVO(id, type)
 }
+
+fun AsksVO.AskVO.toBO(): AsksBO = AsksBO(
+    id = this.id,
+    text = this.text,
+    type = this.type.toBO()
+)

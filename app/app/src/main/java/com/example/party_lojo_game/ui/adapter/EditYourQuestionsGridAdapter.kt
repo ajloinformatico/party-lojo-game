@@ -10,6 +10,7 @@ import com.example.party_lojo_game.databinding.RowUnknownBinding
 import com.example.party_lojo_game.ui.viewholders.EditYourQuestionsGridViewHolder
 import com.example.party_lojo_game.ui.vo.AskTypeVO
 import com.example.party_lojo_game.ui.vo.AsksVO
+import com.example.party_lojo_game.ui.vo.EditYourQuestionsEvents
 
 class EditYourQuestionsGridAdapter(
     private val event: (EditYourQuestionsEvents) -> Unit
@@ -73,16 +74,4 @@ class EditYourQuestionsGridAdapter(
         override fun areContentsTheSame(oldItem: AsksVO, newItem: AsksVO): Boolean =
             oldItem == newItem
     }
-}
-
-sealed interface EditYourQuestionsEvents {
-    data class Edit(
-        val id: Long,
-        val askTypeVO: AskTypeVO
-    ) : EditYourQuestionsEvents
-
-    data class Remove(
-        val id: Long,
-        val askTypeVO: AskTypeVO
-    ) : EditYourQuestionsEvents
 }

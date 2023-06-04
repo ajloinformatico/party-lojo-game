@@ -8,7 +8,7 @@ import com.example.party_lojo_game.data.local.dbo.YoNuncaDBO
 import com.example.party_lojo_game.ui.vo.AskTypeVO
 import com.example.party_lojo_game.ui.vo.AsksVO
 
-fun AsksBO.toVo(): AsksVO =
+fun AsksBO.toVo(): AsksVO.AskVO =
     AsksVO.AskVO(
         id = this.id,
         text = this.text,

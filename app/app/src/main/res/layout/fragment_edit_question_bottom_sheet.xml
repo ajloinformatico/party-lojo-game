@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.fragments.editquestion.EditQuestionBottomSheetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp8">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/titleText.center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/edit_your_question"
+            android:textSize="@dimen/sp30"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/typeLabel"
+            style="@style/InputTextLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp150"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Yo nunca"/>
+
+        <EditText
+            android:id="@+id/edit_text"
+            style="@style/inputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30"
+            android:autofillHints="name"
+            android:gravity="top"
+            android:hint="@string/edit_your_question_hint"
+            android:inputType="text|textMultiLine"
+            android:minHeight="@dimen/dp150"
+            app:layout_constraintTop_toBottomOf="@id/typeLabel" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/saveBtn"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60"
+            android:layout_marginTop="@dimen/dp40"
+            android:backgroundTint="@color/primary_slow_purple"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            app:cardCornerRadius="@dimen/dp40"
+            app:layout_constraintBottom_toTopOf="@id/saveBtnLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_save_icon" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/saveBtnLabel"
+            style="@style/normalText.center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp20"
+            android:text="@string/save_question"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading"
+        tools:visibility="gone" />
+
+    <include
+        android:id="@+id/error_screen"
+        layout="@layout/row_error_screen"
+        tools:visibility="gone" />
+
+</FrameLayout>

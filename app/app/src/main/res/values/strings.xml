@@ -84,5 +84,9 @@
     <string name="remove">Eliminar</string>
     <string name="removed_success">La pregunta ha sido eliminada correctamente</string>
     <string name="removed_fail">ha habido un error al eliminar la preguntar</string>
+    <string name="edit_your_question">Edita tu pregunta</string>
+    <string name="edit_your_question_hint">Introduzca aquí el nuevo texto de su pregunta</string>
+    <string name="edit_your_question_success">La pregunta se ha guardado correctamente</string>
+    <string name="edit_your_question_fail">La pregunta no se ha guradado correctamente</string>
     <!-- endregion editQuestion -->
 </resources>

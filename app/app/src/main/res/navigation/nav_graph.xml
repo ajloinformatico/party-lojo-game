@@ -135,9 +135,28 @@
 
     <fragment
         android:id="@+id/editQuestionFragment"
-        android:name="com.example.party_lojo_game.ui.fragments.EditQuestionFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.editquestion.EditQuestionFragment"
         android:label="fragment_edit_question"
-        tools:layout="@layout/fragment_edit_question" />
+        tools:layout="@layout/fragment_edit_question" >
+        <action
+            android:id="@+id/action_editQuestionFragment_to_editQuestionBottomSheetFragment"
+            app:destination="@id/editQuestionBottomSheetFragment"
+            app:enterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editQuestionBottomSheetFragment"
+        android:name="com.example.party_lojo_game.ui.fragments.editquestion.EditQuestionBottomSheetFragment"
+        android:label="fragment_edit_question_bottom_sheet"
+        tools:layout="@layout/fragment_edit_question_bottom_sheet" >
+        <argument
+            android:name="Ask"
+            app:argType="com.example.party_lojo_game.data.AsksBO"
+            app:nullable="false"
+            />
+    </fragment>
+
 
     <fragment
         android:id="@+id/addImageFragment"

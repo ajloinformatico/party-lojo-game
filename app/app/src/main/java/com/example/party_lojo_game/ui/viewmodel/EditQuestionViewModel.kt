@@ -15,6 +15,7 @@ import com.example.party_lojo_game.data.mappers.toVo
 import com.example.party_lojo_game.data.repository.LocalRepository
 import com.example.party_lojo_game.ui.vo.AsksVO
 import com.example.party_lojo_game.ui.vo.EditAskState
+import com.example.party_lojo_game.ui.vo.toBO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -50,9 +51,11 @@ class EditQuestionViewModel @Inject constructor(
         questionsBO.clear()
     }
 
-    fun getAllYoNuncaAsks(): LiveData<List<YoNuncaDBO>> = localRepository.selectAllFromYoNunca.asLiveData()
+    fun getAllYoNuncaAsks(): LiveData<List<YoNuncaDBO>> =
+        localRepository.selectAllFromYoNunca.asLiveData()
 
-    fun getAllBebeQuienAsks(): LiveData<List<BebeQuienDBO>> = localRepository.selectAllFromBebeQuien.asLiveData()
+    fun getAllBebeQuienAsks(): LiveData<List<BebeQuienDBO>> =
+        localRepository.selectAllFromBebeQuien.asLiveData()
 
     fun updateYoNuncaBOAsks(yoNuncaDBO: List<YoNuncaDBO>) {
         questionsBO.addAll(yoNuncaDBO.map { it.toBO() })
@@ -83,8 +86,8 @@ class EditQuestionViewModel @Inject constructor(
         val asksVO = mutableListOf<AsksVO>()
         questionsBO.forEach {
             // Note: Add titles
-            if (!yoNuncaTitle && it.type == AskTypeBO.YO_NUNCA ) {
-               asksVO.add(AsksVO.TitleAskVO(-1, YO_NUNCA))
+            if (!yoNuncaTitle && it.type == AskTypeBO.YO_NUNCA) {
+                asksVO.add(AsksVO.TitleAskVO(-1, YO_NUNCA))
                 yoNuncaTitle = true
             }
             if (yoNuncaTitle && !bebeQuienTitle && it.type == AskTypeBO.BEBE_QUIEN) {
@@ -100,7 +103,7 @@ class EditQuestionViewModel @Inject constructor(
 
     fun remove(questionId: Long, askTypeBO: AskTypeBO) {
         viewModelScope.launch {
-            val removed = localRepository.deleteMonument(
+            val removed = localRepository.removeAsk(
                 id = questionId,
                 type = askTypeBO
             )
@@ -110,7 +113,14 @@ class EditQuestionViewModel @Inject constructor(
             _state.value = EditAskState.RemoveQuestion(
                 removed = removed
             )
+        }
+    }
 
+    fun editQuestion(ask: AsksVO.AskVO) {
+        viewModelScope.launch {
+            _state.value = EditAskState.Edit(
+                AskBO = ask.toBO()
+            )
         }
     }
 }

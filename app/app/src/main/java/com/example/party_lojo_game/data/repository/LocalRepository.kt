@@ -57,7 +57,7 @@ class LocalRepository @Inject constructor(
     // endregion inserts
 
     // region remove
-    suspend fun deleteMonument(id: Long, type: AskTypeBO): Boolean {
+    suspend fun removeAsk(id: Long, type: AskTypeBO): Boolean {
         return when (type) {
             AskTypeBO.YO_NUNCA -> {
                 yoNuncaDAO.deleteYoNuncaAsk(id)

@@ -1,4 +1,4 @@
-package com.example.party_lojo_game.ui.fragments
+package com.example.party_lojo_game.ui.fragments.editquestion
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.example.party_lojo_game.R
+import com.example.party_lojo_game.data.AsksBO
 import com.example.party_lojo_game.databinding.FragmentEditQuestionBinding
-import com.example.party_lojo_game.ui.adapter.EditYourQuestionsEvents
 import com.example.party_lojo_game.ui.adapter.EditYourQuestionsGridAdapter
+import com.example.party_lojo_game.ui.fragments.OnPlayHomeFragmentDirections
 import com.example.party_lojo_game.ui.viewmodel.EditQuestionViewModel
 import com.example.party_lojo_game.ui.vo.EditAskState
+import com.example.party_lojo_game.ui.vo.EditYourQuestionsEvents
 import com.example.party_lojo_game.ui.vo.toBO
 import com.example.party_lojo_game.utils.gone
 import com.example.party_lojo_game.utils.messages.InfoLojoSnackBarMaker
@@ -19,18 +23,22 @@ import com.example.party_lojo_game.utils.messages.InfoLojoToastMaker
 import com.example.party_lojo_game.utils.show
 import dagger.hilt.android.AndroidEntryPoint
 
+const val QUESTION_TO_EDIT_ID = "QUESTION_TO_EDIT_ID"
+
 @AndroidEntryPoint
 class EditQuestionFragment : Fragment() {
 
     private val viewModel: EditQuestionViewModel by viewModels()
     private val adapter = EditYourQuestionsGridAdapter(::manageEditYourQuestionEvents)
     private var binding: FragmentEditQuestionBinding? = null
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentEditQuestionBinding.inflate(inflater, container, false)
+        navController = findNavController()
         return binding?.root
     }
 
@@ -61,10 +69,26 @@ class EditQuestionFragment : Fragment() {
                 is EditAskState.Render -> render()
                 is EditAskState.Error -> showError()
                 is EditAskState.RemoveQuestion -> showRemoveQuestion(state.removed)
-                is EditAskState.Edit -> { /* TODO */ }
+                is EditAskState.Edit -> {
+                    navigateToEditFragment(state.AskBO)
+                }
             }
         }
+        refresh()
+    }
+
+    private fun refresh() {
         viewModel.init()
+    }
+
+    private fun navigateToEditFragment(ask: AsksBO) {
+        navController.navigate(
+            EditQuestionFragmentDirections.actionEditQuestionFragmentToEditQuestionBottomSheetFragment(
+                ask
+            )
+        )
+        // reload
+        refresh()
     }
 
     private fun showLoading() {
@@ -126,7 +150,7 @@ class EditQuestionFragment : Fragment() {
     private fun manageEditYourQuestionEvents(event: EditYourQuestionsEvents) {
         when (event) {
             is EditYourQuestionsEvents.Edit -> {
-                InfoLojoToastMaker.createSimpleToast(requireContext(), "Edit question")
+                viewModel.editQuestion(event.ask)
             }
 
             is EditYourQuestionsEvents.Remove -> {

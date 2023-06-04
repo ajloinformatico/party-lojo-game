@@ -9,8 +9,8 @@ import com.example.party_lojo_game.R
 import com.example.party_lojo_game.databinding.RowSingleQuestionBinding
 import com.example.party_lojo_game.databinding.RowTitleEditYourQuestionBinding
 import com.example.party_lojo_game.databinding.RowUnknownBinding
-import com.example.party_lojo_game.ui.adapter.EditYourQuestionsEvents
 import com.example.party_lojo_game.ui.vo.AsksVO
+import com.example.party_lojo_game.ui.vo.EditYourQuestionsEvents
 
 sealed class EditYourQuestionsGridViewHolder(
     val view: View
@@ -43,8 +43,7 @@ sealed class EditYourQuestionsGridViewHolder(
                             editAction = {
                                 event(
                                     EditYourQuestionsEvents.Edit(
-                                        id = ask.id,
-                                        askTypeVO = ask.type
+                                        ask = ask
                                     )
                                 )
                             },
